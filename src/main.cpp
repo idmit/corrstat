@@ -8,7 +8,6 @@
 
 #include <iostream>
 #include "spn.h"
-#include "data.h"
 
 int main(int argc, char **argv) {
   if (argc != 2) {
