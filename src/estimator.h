@@ -17,7 +17,7 @@ class estimator {
 public:
   estimator();
   double exec(data samples);
-  bool load(est_kind::t kind);
+  bool load(std::string dir_path, est_kind::t kind);
   ~estimator();
 
 private:

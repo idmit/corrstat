@@ -7,6 +7,7 @@
 //
 
 #include <dlfcn.h>
+#include <iostream>
 #include "estimator.h"
 
 namespace cst {
@@ -14,27 +15,30 @@ estimator::estimator() : _extern_exec(0), _lib(0) {}
 
 double estimator::exec(data samples) { return _extern_exec(samples); }
 
-bool estimator::load(est_kind::t kind) {
-  if (_lib != nullptr) {
+bool estimator::load(std::string dir_path, est_kind::t kind) {
+  if (_lib != 0) {
     dlclose(_lib);
   }
-  _lib = dlopen("/Users/ivandmi/Documents/dev/corrstat/corrstat/src/estimators/"
-                "estkendall.so",
-                RTLD_NOW);
+
+  std::string lib_name = "est" + est_kind::s(kind) + ".so";
+  dir_path += dir_path.back() == '/' ? "" : "/";
+  dir_path += lib_name;
+
+  _lib = dlopen(dir_path.c_str(), RTLD_NOW);
 
   char *error = dlerror();
   if (error) {
-    printf("failed to open kendall.so: %s \n", error);
+    std::cout << "Failed to open " + lib_name + ": " << error << ".\n";
     return false;
   };
 
-  //  Hack, C++ doesn't support this.
   ul hack = (ul)dlsym(_lib, "exec");
   _extern_exec = (double (*)(data samples))hack;
   error = dlerror();
 
   if (error) {
-    printf("failed to find symboll: %s \n", error);
+    std::cout << "Failed to find symbol in " + lib_name + ": " << error
+              << ".\n";
     return false;
   }
 
