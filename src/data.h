@@ -24,8 +24,10 @@ public:
   bool (*gt)(point l, point r);
   short (*cmp)(point l, point r);
 
+  point &operator[](const ul index);
+  ul size() const;
+
 private:
-  const ul _dim;
   std::vector<point> _raw;
   static bool _eq(point l, point r);
   static bool _lt(point l, point r);
