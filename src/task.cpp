@@ -14,12 +14,12 @@ cst::task::task(cst::data data) : _data(data) {}
 
 double cst::task::exec(cst::est_kind::t kind) {
   cst::estimator estimator;
-  double estimate = 23;
+  double estimate = 0;
 
-  printf("%s", est_kind::s(kind).c_str());
-
-  //  estimator.load(kind);
-  //  estimate = estimator.exec(_data);
+  estimator.load("/Users/ivandmi/Documents/dev/corrstat/corrstat/src/"
+                 "estimators/",
+                 kind);
+  estimate = estimator.exec(_data);
 
   return estimate;
 }
