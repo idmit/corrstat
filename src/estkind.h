@@ -21,7 +21,8 @@ public:
 #undef X
   };
 
-  static std::string s(est_kind::t kind) { return _names[(int)kind]; }
+  static std::string str(est_kind::t kind);
+  static t enm(const char *cstring);
 
 private:
   static const std::string _names[];

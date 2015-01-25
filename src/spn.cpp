@@ -29,8 +29,9 @@ int scheduler_task_from_file(SpnValue *ret, int argc, SpnValue *argv,
 
 int task_exec(SpnValue *ret, int argc, SpnValue *argv, void *ctx) {
   if (argc == 3 && spn_isweakuserinfo(&argv[1]) && spn_isstring(&argv[2])) {
+    SpnString *kind = spn_stringvalue(&argv[2]);
     cst::task *task = (cst::task *)(spn_ptrvalue(&argv[1]));
-    *ret = spn_makefloat(task->exec(cst::est_kind::kendall));
+    *ret = spn_makefloat(task->exec(cst::est_kind::enm(kind->cstr)));
   }
   return 0;
 }

@@ -20,7 +20,7 @@ bool estimator::load(std::string dir_path, est_kind::t kind) {
     dlclose(_lib);
   }
 
-  std::string lib_name = "est" + est_kind::s(kind) + ".so";
+  std::string lib_name = "est" + est_kind::str(kind) + ".so";
   dir_path += dir_path.back() == '/' ? "" : "/";
   dir_path += lib_name;
 
