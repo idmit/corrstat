@@ -16,7 +16,7 @@ namespace cst {
 class estimator {
 public:
   estimator();
-  double exec(data samples);
+  double exec(data &samples);
   bool load(std::string dir_path, est_kind::t kind);
   ~estimator();
 

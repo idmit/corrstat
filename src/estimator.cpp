@@ -13,7 +13,7 @@
 namespace cst {
 estimator::estimator() : _extern_exec(0), _lib(0) {}
 
-double estimator::exec(data samples) { return _extern_exec(samples); }
+double estimator::exec(data &samples) { return _extern_exec(samples); }
 
 bool estimator::load(std::string dir_path, est_kind::t kind) {
   if (_lib != 0) {
