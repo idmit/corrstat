@@ -9,34 +9,41 @@
 #include <dlfcn.h>
 #include "estimator.h"
 
-// double cst::estimator::exec(cst::data samples) { return
-// _extern_exec(samples); }
+namespace cst {
+estimator::estimator() : _extern_exec(0), _lib(0) {}
 
-bool cst::estimator::load(cst::est_kind::t kind) {
+double estimator::exec(data samples) { return _extern_exec(samples); }
+
+bool estimator::load(est_kind::t kind) {
   if (_lib != nullptr) {
     dlclose(_lib);
   }
-  _lib = dlopen("/Users/ivandmi/Downloads/kendall.so", RTLD_NOW);
+  _lib = dlopen("/Users/ivandmi/Documents/dev/corrstat/corrstat/src/estimators/"
+                "estkendall.so",
+                RTLD_NOW);
 
   char *error = dlerror();
   if (error) {
-    //    printf("failed to open kendall.so: %s \n", error);
+    printf("failed to open kendall.so: %s \n", error);
     return false;
   };
 
-  //  _extern_exec = (double (*)(data samples))dlsym(_lib, "exec");
+  //  Hack, C++ doesn't support this.
+  ul hack = (ul)dlsym(_lib, "exec");
+  _extern_exec = (double (*)(data samples))hack;
   error = dlerror();
 
   if (error) {
-    //    printf("failed to find symboll: %s \n", error);
+    printf("failed to find symboll: %s \n", error);
     return false;
   }
 
   return true;
 }
 
-cst::estimator::~estimator() {
-  if (_lib != nullptr) {
+estimator::~estimator() {
+  if (_lib != 0) {
     dlclose(_lib);
   }
+}
 }

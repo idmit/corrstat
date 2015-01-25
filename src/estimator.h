@@ -15,12 +15,13 @@
 namespace cst {
 class estimator {
 public:
-  //  double exec(data samples);
+  estimator();
+  double exec(data samples);
   bool load(est_kind::t kind);
   ~estimator();
 
 private:
-  //  double (*_extern_exec)(data samples) = nullptr;
+  double (*_extern_exec)(data samples);
   void *_lib;
 };
 }
