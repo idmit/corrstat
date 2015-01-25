@@ -11,7 +11,7 @@
 
 namespace cst {
 data::data(ul dim, ul size)
-    : eq(_eq), lt(_lt), gt(_gt), cmp(_cmp), _dim(dim), _raw(size) {}
+    : eq(_eq), lt(_lt), gt(_gt), cmp(_cmp), _dim(dim), _raw(size, point(dim)) {}
 
 bool data::_eq(point l, point r) {
   assert(l.size() == r.size());
