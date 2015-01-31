@@ -1,5 +1,5 @@
 CXX = g++
-CFLAGS = -g -Wall -O2 -pedantic
+CFLAGS = -g -Wall -O2 -std=c++03 -pedantic-errors
 LIBS = -Llib -lspn
 INCLUDES = -Iinclude
 
