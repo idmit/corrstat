@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
   }
   std::string default_rel = "estimators";
   default_rel.push_back(cst::path_sep);
-  cst::estimator::set_rel_path(argc > 2 ? std::string(argv[3]) : default_rel);
+  cst::estimator::set_rel_path(argc > 2 ? std::string(argv[2]) : default_rel);
   cst::spn spn;
   spn.exec(argv[1]);
 }
