@@ -24,7 +24,6 @@ bool estimator::load(est_kind::t kind) {
   }
 
   std::string lib_name = "est" + est_kind::str(kind) + ".so";
-  // dir_path += dir_path.back() == '/' ? "" : "/";
   std::string dl_path = _base_dir + lib_name;
 
   _lib = dlopen(dl_path.c_str(), RTLD_NOW);
