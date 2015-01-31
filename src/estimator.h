@@ -17,10 +17,15 @@ class estimator {
 public:
   estimator();
   double exec(data &samples);
-  bool load(std::string dir_path, est_kind::t kind);
+  bool load(est_kind::t kind);
   ~estimator();
 
+  static void set_base_dir(std::string script_dir);
+  static void set_rel_path(std::string rel_path);
+
 private:
+  static std::string _base_dir;
+  static std::string _rel_path;
   double (*_extern_exec)(data samples);
   void *_lib;
 };

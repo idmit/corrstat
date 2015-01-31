@@ -16,9 +16,7 @@ double cst::task::exec(cst::est_kind::t kind) {
   cst::estimator estimator;
   double estimate = 0;
 
-  estimator.load("/Users/ivandmi/Documents/dev/corrstat/corrstat/src/"
-                 "estimators/",
-                 kind);
+  estimator.load(kind);
   estimate = estimator.exec(_data);
 
   return estimate;

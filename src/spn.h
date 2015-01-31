@@ -15,6 +15,13 @@
 
 namespace cst {
 
+const char path_sep =
+#ifdef _WIN32
+    '\\';
+#else
+    '/';
+#endif
+
 typedef int (*spn_ext_fn)(SpnValue *, int, SpnValue *, void *);
 
 class spn {
@@ -25,11 +32,13 @@ public:
 
 private:
   static void wrap_fn(const char *name, spn_ext_fn fn);
+  static void wrap_val(const char *name, std::string val);
   void load_fns();
 
 private:
   SpnContext _ctx;
   static std::vector<SpnExtFunc> _ext_fns;
+  static std::vector<SpnExtValue> _ext_vals;
 };
 }
 
