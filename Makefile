@@ -1,31 +1,63 @@
-CXX = g++
-CFLAGS = -g -Wall -O2 -std=c++03 -pedantic-errors
-LIBS = -Llib -lspn
-INCLUDES = -Iinclude
+CXX       = g++
+LD        = g++
 
-TARGET = corrstat
-BINDIR = bin
-SRCDIR = src
-BUILDDIR = build
+ifeq ($(OS), Windows_NT)
+	LIB_DIR = lib/win
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S), Linux)
+		LIB_DIR = lib/lnx
+	endif
+	ifeq ($(UNAME_S), Darwin)
+		LIB_DIR = lib/osx
+	endif
+endif
 
-.PHONY: destdir all clean
+CFLAGS    = -Wall -std=c++03 -pedantic-errors
+LIBS      = -L$(LIB_DIR) -lspn
 
-all: $(TARGET)
+MODULES   = distribution .
+SRC_DIR   = $(addprefix src/, $(MODULES))
+BUILD_DIR = $(addprefix build/, $(MODULES))
+BIN_DIR   = bin
 
-OBJECTS = $(patsubst $(SRCDIR)/%.cpp, $(BUILDDIR)/%.o, $(wildcard $(SRCDIR)/*.cpp))
-HEADERS = $(wildcard $(SRCDIR)/*.h)
+SRC       = $(foreach sdir, $(SRC_DIR), $(wildcard $(sdir)/*.cpp))
+OBJ       = $(patsubst src/%.cpp, build/%.o, $(SRC))
+INCLUDES  = $(addprefix -I, $(SRC_DIR)) -Iinclude
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.cpp $(HEADERS)
-	$(CXX) $(CFLAGS) $(INCLUDES) -c $< -o $@
+TARGET    = corrstat
 
-.PRECIOUS: $(TARGET) $(OBJECTS)
+DEBUG     ?= 0
+ifeq ($(DEBUG), 1)
+	CFLAGS += -g3 -DDEBUG
+else
+	CFLAGS += -O3
+endif
 
-$(TARGET): destdir $(OBJECTS)
-	$(CXX) $(OBJECTS) -Wall $(LIBS) -o $(BINDIR)/$@
+vpath %.cpp $(SRC_DIR)
 
-destdir:
-	mkdir -p ./bin
-	mkdir -p ./build
+define make-goal
+$1/%.o: %.cpp
+	$(CXX) $(CFLAGS) $(INCLUDES) -c $$< -o $$@
+endef
+
+.PHONY: all checkdirs clean
+
+all: bindir builddirs $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(LD) $^ -o $(BIN_DIR)/$@ $(LIBS)
+
+bindir:
+	mkdir -p $(BIN_DIR)
+
+builddirs: $(BUILD_DIR)
+
+$(BUILD_DIR):
+	mkdir -p $@
 
 clean:
-	-rm -f $(BUILDDIR)/* $(BINDIR)/$(TARGET)
+	rm -rf $(BIN_DIR)/$(TARGET)
+	rm -rf build/*
+
+$(foreach bdir, $(BUILD_DIR), $(eval $(call make-goal, $(bdir))))
