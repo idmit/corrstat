@@ -1,0 +1,3 @@
+[submodule "lib/spn"]
+	path = lib/spn
+	url = git@github.com:H2CO3/Sparkling.git
