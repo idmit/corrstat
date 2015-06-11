@@ -20,6 +20,7 @@ MODULES   = distribution .
 SRC_DIR   = $(addprefix src/, $(MODULES))
 BUILD_DIR = $(addprefix build/, $(MODULES))
 BIN_DIR   = bin
+SPNDIR =  lib/spn
 
 SRC       = $(foreach sdir, $(SRC_DIR), $(wildcard $(sdir)/*.cpp))
 OBJ       = $(patsubst src/%.cpp, build/%.o, $(SRC))
@@ -46,6 +47,7 @@ endef
 all: bindir builddirs $(TARGET)
 
 $(TARGET): $(OBJ)
+	$(MAKE) -C $(SPNDIR)
 	$(LD) $^ -o $(BIN_DIR)/$@ $(LIBS)
 
 bindir:
