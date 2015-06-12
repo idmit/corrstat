@@ -20,7 +20,7 @@ typedef std::vector<num_t> vec_t;
 typedef num_t (*fn)(num_t);
 typedef num_t (*mv_fn)(vec_t);
 
-num_t cross(vec_t x, vec_t y) {
+num_t cross(const vec_t &x, const vec_t &y) {
   assert(x.size() == y.size());
   num_t c = 0;
   for (size_t i = 0; i < x.size(); ++i) {
