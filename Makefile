@@ -28,7 +28,7 @@ INCLUDES  = $(addprefix -I, $(SRC_DIR)) -Iinclude
 
 TARGET    = corrstat
 
-DEBUG     ?= 0
+DEBUG     ?= 1
 ifeq ($(DEBUG), 1)
 	CFLAGS += -g3 -DDEBUG
 else
