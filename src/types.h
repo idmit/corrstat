@@ -28,6 +28,16 @@ num_t cross(const vec_t &x, const vec_t &y) {
   }
   return c;
 }
+
+bool less(const vec_t &lhs, const vec_t &rhs) {
+  assert(lhs.size() == rhs.size());
+  for (size_t i = 0; i < lhs.size(); ++i) {
+    if (lhs[i] > rhs[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 }
 
 #endif
