@@ -9,13 +9,21 @@
 #ifndef corrstat_e_distribution_h
 #define corrstat_e_distribution_h
 
+#include <algorithm>
+#include <cmath>
+#include <fstream>
+
 #include "distribution_i.h"
+#include "../result.h"
 
 namespace cst {
 
 class e_distribution_t : public distribution_i {
 public:
-  e_distribution_t(const vec_t& samples) : _samples(samples) {}
+  e_distribution_t() {}
+  e_distribution_t(const vec_t& samples) : _samples(samples) {
+    std::sort(_samples.begin(), _samples.end());
+  }
 
   virtual num_t prob(num_t x) { return 0; }
 
@@ -72,6 +80,39 @@ public:
   virtual bool is_supp_upper_bound_inclusive() { return true; }
 
   virtual num_t sample() { return 0; }
+
+  static result<e_distribution_t> read(std::string path_to_data) {
+    std::fstream stream;
+    stream.open(path_to_data.c_str());
+
+    vec_t samples;
+    num_t sample;
+    while (stream >> sample) {
+      samples.push_back(sample);
+    }
+
+    bool reached_eof = stream.eof();
+    stream.close();
+
+    if (reached_eof) {
+      e_distribution_t d(samples);
+      return result<e_distribution_t>::ok(d);
+    }
+
+    return result<e_distribution_t>::error("File contains invalid number.",
+                                           error_t::io_error);
+  }
+
+  void export_cdf(std::string path_to_data) {
+    std::fstream stream;
+    stream.open(path_to_data.c_str());
+
+    vec_t samples;
+    for (size_t i = 0; i < _samples.size(); ++i) {
+      stream << _samples[i] << ' ' << cdf(_samples[i]) << '\n';
+    }
+    stream.close();
+  }
 
 private:
   vec_t _samples;

@@ -13,7 +13,7 @@
 
 class error_t {
 public:
-  enum type { runtime_error };
+  enum type { runtime_error, io_error };
 
   error_t(const std::string &what, error_t::type type = runtime_error);
   const std::string &what() const;
