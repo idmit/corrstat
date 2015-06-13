@@ -24,6 +24,7 @@ SPNDIR =  lib/spn
 
 SRC       = $(foreach sdir, $(SRC_DIR), $(wildcard $(sdir)/*.cpp))
 OBJ       = $(patsubst src/%.cpp, build/%.o, $(SRC))
+DEP       = $(OBJ:%.o=%.d)
 INCLUDES  = $(addprefix -I, $(SRC_DIR)) -Iinclude
 
 TARGET    = corrstat
@@ -37,11 +38,13 @@ else
 	LDFLAGS = -O3
 endif
 
+-include $(DEP)
+
 vpath %.cpp $(SRC_DIR)
 
 define make-goal
 $1/%.o: %.cpp
-	$(CXX) $(CFLAGS) $(INCLUDES) -c $$< -o $$@
+	$(CXX) $(CFLAGS) $(INCLUDES) -MMD -c $$< -o $$@
 endef
 
 .PHONY: all checkdirs clean
