@@ -17,4 +17,5 @@ class distribution_t : public distribution_i {
   virtual num_t prob(num_t x) { return 0; }
 };
 }
+
 #endif /* defined(__corrstat__distribution__) */

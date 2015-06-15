@@ -18,6 +18,7 @@ public:
   virtual num_t prob(num_t x) = 0;
   virtual num_t density(num_t x) = 0;
   virtual num_t cdf(num_t x) = 0;
+  virtual num_t inv_cdf(num_t p) = 0;
 
   virtual num_t mean() = 0;
   virtual num_t variance() = 0;

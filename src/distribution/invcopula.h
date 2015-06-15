@@ -10,6 +10,7 @@
 #define corrstat_invcopula_h
 
 #include "copula.h"
+#include "distribution.h"
 #include "mv_distribution.h"
 
 #include "shared_ptr.hpp"
@@ -19,12 +20,30 @@ namespace cst {
 class invcopula_t : public copula_t {
 public:
   invcopula_t(mv_distribution_t *mv_dist, const std::vector<fn> &inverses)
-      : copula_t(mv_dist->dim()), _mv_dist(mv_dist), _inverses(inverses) {}
+      : copula_t(mv_dist->dim()),
+        _mv_dist(mv_dist),
+        _plain_inverses(true),
+        _inverses(inverses) {}
+
+  invcopula_t(mv_distribution_t *mv_dist,
+              const std::vector<shared_ptr<distribution_t> > &uv_dists)
+      : copula_t(mv_dist->dim()),
+        _mv_dist(mv_dist),
+        _plain_inverses(false),
+        _inverses(),
+        _uv_dists(uv_dists) {}
 
   virtual num_t call(vec_t x) {
     vec_t cp(_dim);
-    for (size_t i = 0; i < _dim; ++i) {
-      cp[i] = _inverses[i](x[i]);
+
+    if (_plain_inverses) {
+      for (size_t i = 0; i < _dim; ++i) {
+        cp[i] = _inverses[i](x[i]);
+      }
+    } else {
+      for (size_t i = 0; i < _dim; ++i) {
+        cp[i] = _uv_dists[i]->inv_cdf(x[i]);
+      }
     }
 
     return _mv_dist->cdf(cp);
@@ -32,7 +51,9 @@ public:
 
 private:
   shared_ptr<mv_distribution_t> _mv_dist;
+  bool _plain_inverses;
   std::vector<fn> _inverses;
+  std::vector<shared_ptr<distribution_t> > _uv_dists;
 };
 }
 
