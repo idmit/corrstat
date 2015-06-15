@@ -20,6 +20,8 @@ typedef std::vector<num_t> vec_t;
 typedef num_t (*fn)(num_t);
 typedef num_t (*mv_fn)(vec_t);
 
+const num_t PI = 3.14159265359;
+
 num_t cross(const vec_t &x, const vec_t &y) {
   assert(x.size() == y.size());
   num_t c = 0;
