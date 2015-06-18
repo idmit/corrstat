@@ -19,6 +19,7 @@ public:
 
   virtual num_t call(const vec_t& x) const = 0;
   virtual num_t operator()(const vec_t& x) const { return call(x); }
+  virtual num_t density(const vec_t& x) const = 0;
   virtual size_t dim() const { return _dim; }
 
 protected:

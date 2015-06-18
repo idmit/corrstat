@@ -49,6 +49,12 @@ public:
     return _mv_dist->cdf(cp);
   }
 
+  virtual num_t density(const vec_t &x) {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
+
 private:
   const mv_distribution_t *_mv_dist;
   bool _plain_inverses;

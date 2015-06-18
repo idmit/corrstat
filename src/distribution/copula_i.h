@@ -16,7 +16,9 @@ namespace cst {
 class copula_i {
 public:
   virtual num_t operator()(const vec_t& x) const = 0;
+  virtual num_t density(const vec_t& x) const = 0;
   virtual size_t dim() const = 0;
+
   virtual ~copula_i() {}
 };
 }
