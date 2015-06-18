@@ -21,8 +21,9 @@ namespace cst {
 class e_distribution_t : public distribution_i {
 public:
   e_distribution_t() {}
-  e_distribution_t(const vec_t& samples) : _samples(samples) {
-    std::sort(_samples.begin(), _samples.end());
+  e_distribution_t(const vec_t& sample)
+      : _sample_size(sample.size()), _sample(sample) {
+    std::sort(_sample.begin(), _sample.end());
   }
 
   virtual num_t prob(num_t x) const { return 0; }
@@ -35,36 +36,42 @@ public:
 
   virtual num_t cdf(num_t x) const {
     num_t num = 0;
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      if (_samples[i] <= x) {
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      if (_sample[i] <= x) {
         num += 1;
       }
     }
-    return num / _samples.size();
+    return num / _sample.size();
+  }
+
+  virtual num_t inv_cdf(num_t p) const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
   }
 
   virtual num_t mean() const {
     num_t acc = 0;
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      acc += _samples[i];
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      acc += _sample[i];
     }
-    return acc / _samples.size();
+    return acc / _sample.size();
   }
 
   virtual num_t variance() const {
     num_t acc = 0;
     num_t m = mean();
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      acc += (_samples[i] - m) * (_samples[i] - m);
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      acc += (_sample[i] - m) * (_sample[i] - m);
     }
-    return acc / (_samples.size() - 1);
+    return acc / (_sample.size() - 1);
   }
 
   virtual num_t supp_lower_bound() const {
     num_t min = INFINITY;
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      if (_samples[i] < min) {
-        min = _samples[i];
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      if (_sample[i] < min) {
+        min = _sample[i];
       }
     }
     return min;
@@ -72,9 +79,9 @@ public:
 
   virtual num_t supp_upper_bound() const {
     num_t max = -INFINITY;
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      if (max < _samples[i]) {
-        max = _samples[i];
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      if (max < _sample[i]) {
+        max = _sample[i];
       }
     }
     return max;
@@ -92,18 +99,19 @@ public:
   static result<e_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
+    // TODO: Check for std io errors.
 
-    vec_t samples;
-    num_t sample;
-    while (stream >> sample) {
-      samples.push_back(sample);
+    vec_t sample;
+    num_t element;
+    while (stream >> element) {
+      sample.push_back(element);
     }
 
     bool reached_eof = stream.eof();
     stream.close();
 
     if (reached_eof) {
-      e_distribution_t d(samples);
+      e_distribution_t d(sample);
       return result<e_distribution_t>::ok(d);
     }
 
@@ -114,16 +122,20 @@ public:
   void export_cdf(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
+    // TODO: Check for std io errors.
 
-    vec_t samples;
-    for (size_t i = 0; i < _samples.size(); ++i) {
-      stream << _samples[i] << ' ' << cdf(_samples[i]) << '\n';
+    vec_t sample;
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      stream << _sample[i] << ' ' << cdf(_sample[i]) << '\n';
     }
     stream.close();
   }
 
+  size_t sample_size() const { return _sample_size; }
+
 private:
-  vec_t _samples;
+  size_t _sample_size;
+  vec_t _sample;
 };
 }
 
