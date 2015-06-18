@@ -22,7 +22,6 @@ public:
   virtual size_t dim() const { return _dim; }
 
 protected:
-  void check(const vec_t& x) { assert(x.size() == _dim); }
   size_t _dim;
 };
 }

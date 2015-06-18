@@ -20,8 +20,6 @@ public:
   virtual num_t call(const vec_t& x) const {
     num_t a(0);
 
-    check(x);
-
     for (size_t i = 0; i < _dim; ++i) {
       a += gen(x[i]);
     }
