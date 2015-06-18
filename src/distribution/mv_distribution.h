@@ -16,10 +16,10 @@ namespace cst {
 class mv_distribution_t : public mv_distribution_i {
 public:
   mv_distribution_t(size_t dim) : _dim(dim) {}
-  virtual num_t density(vec_t x) = 0;
-  virtual num_t cdf(vec_t x) = 0;
-  virtual size_t dim() { return _dim; }
-  virtual vec_t sample() = 0;
+  virtual num_t density(const vec_t& x) const = 0;
+  virtual num_t cdf(const vec_t& x) const = 0;
+  virtual size_t dim() const { return _dim; }
+  virtual vec_t sample() const = 0;
 
 protected:
   size_t _dim;

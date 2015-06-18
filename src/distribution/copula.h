@@ -17,8 +17,8 @@ class copula_t : public copula_i {
 public:
   copula_t(size_t dim) : _dim(dim) {}
 
-  virtual num_t call(vec_t x) = 0;
-  virtual num_t operator()(vec_t x) { return call(x); }
+  virtual num_t call(const vec_t& x) const = 0;
+  virtual num_t operator()(const vec_t& x) const { return call(x); }
   virtual size_t dim() const { return _dim; }
 
 protected:

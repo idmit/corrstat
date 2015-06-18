@@ -29,7 +29,7 @@ public:
     }
   }
 
-  virtual num_t cdf(vec_t x) {
+  virtual num_t cdf(const vec_t& x) {
     vec_t cp(_dim);
     for (size_t i = 0; i < _dim; ++i) {
       cp[i] = _margins[i]->cdf(x[i]);

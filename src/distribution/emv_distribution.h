@@ -26,9 +26,13 @@ public:
     std::sort(_mv_samples.begin(), _mv_samples.end(), less);
   }
 
-  virtual num_t density(vec_t x) { return 0; }
+  virtual num_t density(const vec_t& x) const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
-  virtual num_t cdf(vec_t x) {
+  virtual num_t cdf(const vec_t& x) const {
     num_t num = 0;
     for (size_t i = 0; i < _mv_samples.size(); ++i) {
       bool ok = true;
@@ -45,8 +49,8 @@ public:
     return num / _mv_samples.size();
   }
 
-  virtual size_t dim() { return _dim; }
-  virtual vec_t sample() {
+  virtual size_t dim() const { return _dim; }
+  virtual vec_t sample() const {
     vec_t s(1);
     s[0] = 0;
     return s;

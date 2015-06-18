@@ -15,21 +15,21 @@ namespace cst {
 
 class distribution_i {
 public:
-  virtual num_t prob(num_t x) = 0;
-  virtual num_t density(num_t x) = 0;
-  virtual num_t cdf(num_t x) = 0;
-  virtual num_t inv_cdf(num_t p) = 0;
+  virtual num_t prob(num_t x) const = 0;
+  virtual num_t density(num_t x) const = 0;
+  virtual num_t cdf(num_t x) const = 0;
+  virtual num_t inv_cdf(num_t p) const = 0;
 
-  virtual num_t mean() = 0;
-  virtual num_t variance() = 0;
+  virtual num_t mean() const = 0;
+  virtual num_t variance() const = 0;
 
-  virtual num_t supp_lower_bound() = 0;
-  virtual num_t supp_upper_bound() = 0;
+  virtual num_t supp_lower_bound() const = 0;
+  virtual num_t supp_upper_bound() const = 0;
 
-  virtual bool is_supp_lower_bound_inclusive() = 0;
-  virtual bool is_supp_upper_bound_inclusive() = 0;
+  virtual bool is_supp_lower_bound_inclusive() const = 0;
+  virtual bool is_supp_upper_bound_inclusive() const = 0;
 
-  virtual num_t sample() = 0;
+  virtual num_t sample() const = 0;
 
   virtual ~distribution_i(){};
 };

@@ -17,7 +17,7 @@ class acopula_t : public copula_t {
 public:
   acopula_t(size_t dim) : copula_t(dim) {}
 
-  virtual num_t call(vec_t x) {
+  virtual num_t call(const vec_t& x) const {
     num_t a(0);
 
     check(x);

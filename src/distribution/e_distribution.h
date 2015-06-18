@@ -25,11 +25,15 @@ public:
     std::sort(_samples.begin(), _samples.end());
   }
 
-  virtual num_t prob(num_t x) { return 0; }
+  virtual num_t prob(num_t x) const { return 0; }
 
-  virtual num_t density(num_t x) { return 0; }
+  virtual num_t density(num_t x) const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
-  virtual num_t cdf(num_t x) {
+  virtual num_t cdf(num_t x) const {
     num_t num = 0;
     for (size_t i = 0; i < _samples.size(); ++i) {
       if (_samples[i] <= x) {
@@ -39,7 +43,7 @@ public:
     return num / _samples.size();
   }
 
-  virtual num_t mean() {
+  virtual num_t mean() const {
     num_t acc = 0;
     for (size_t i = 0; i < _samples.size(); ++i) {
       acc += _samples[i];
@@ -47,7 +51,7 @@ public:
     return acc / _samples.size();
   }
 
-  virtual num_t variance() {
+  virtual num_t variance() const {
     num_t acc = 0;
     num_t m = mean();
     for (size_t i = 0; i < _samples.size(); ++i) {
@@ -56,7 +60,7 @@ public:
     return acc / (_samples.size() - 1);
   }
 
-  virtual num_t supp_lower_bound() {
+  virtual num_t supp_lower_bound() const {
     num_t min = INFINITY;
     for (size_t i = 0; i < _samples.size(); ++i) {
       if (_samples[i] < min) {
@@ -66,7 +70,7 @@ public:
     return min;
   }
 
-  virtual num_t supp_upper_bound() {
+  virtual num_t supp_upper_bound() const {
     num_t max = -INFINITY;
     for (size_t i = 0; i < _samples.size(); ++i) {
       if (max < _samples[i]) {
@@ -76,10 +80,14 @@ public:
     return max;
   }
 
-  virtual bool is_supp_lower_bound_inclusive() { return true; }
-  virtual bool is_supp_upper_bound_inclusive() { return true; }
+  virtual bool is_supp_lower_bound_inclusive() const { return true; }
+  virtual bool is_supp_upper_bound_inclusive() const { return true; }
 
-  virtual num_t sample() { return 0; }
+  virtual num_t sample() const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
   static result<e_distribution_t> read(std::string path_to_data) {
     std::fstream stream;

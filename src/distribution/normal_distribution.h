@@ -18,28 +18,28 @@ namespace cst {
 class normal_distribution_t : public distribution_t {
   normal_distribution_t(num_t m, num_t sd) : _m(m), _sd(sd) {}
 
-  virtual num_t density(num_t x) {
+  virtual num_t density(num_t x) const {
     num_t d = x - _m;
     return std::exp(-(d * d) / (2 * _sd * _sd)) / (_sd * std::sqrt(2 * PI));
   }
 
-  virtual num_t cdf(num_t x) {
+  virtual num_t cdf(num_t x) const {
     return (1 + normal_distribution_t::erf((x - _m) / (_sd * std::sqrt(2)))) /
            2;
   }
 
-  virtual num_t inv_cdf(num_t p) {
+  virtual num_t inv_cdf(num_t p) const {
     return _m + _sd * std::sqrt(2) * normal_distribution_t::inv_cdf(2 * p - 1);
   }
 
-  virtual num_t mean() { return _m; }
+  virtual num_t mean() constconst { return _m; }
   virtual num_t variance() { return _sd * _sd; }
 
-  virtual num_t supp_lower_bound() { return -INFINITY; }
-  virtual num_t supp_upper_bound() { return INFINITY; }
+  virtual num_t supp_lower_bound() const { return -INFINITY; }
+  virtual num_t supp_upper_bound() const { return INFINITY; }
 
-  virtual bool is_supp_lower_bound_inclusive() { return false; }
-  virtual bool is_supp_upper_bound_inclusive() { return false; }
+  virtual bool is_supp_lower_bound_inclusive() const { return false; }
+  virtual bool is_supp_upper_bound_inclusive() const { return false; }
 
   virtual num_t sample() { return 0; }
 
