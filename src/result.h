@@ -21,6 +21,7 @@ public:
   operator bool() const;
 
   T get();
+  const T *borrow();
   T operator*();
   error_t err();
 
@@ -57,6 +58,7 @@ template <class T> bool result<T>::is_ok() const { return _ok; }
 template <class T> result<T>::operator bool() const { return _ok; }
 
 template <class T> T result<T>::get() { return _value; }
+template <class T> const T *result<T>::borrow() { return &_value; }
 template <class T> T result<T>::operator*() { return _value; }
 
 template <class T> error_t result<T>::err() { return _error; }
