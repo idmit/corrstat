@@ -56,6 +56,32 @@ public:
     return s;
   }
 
+  virtual num_t margin_cdf(size_t coordinate, num_t x) const {
+    num_t num = 0;
+    for (size_t i = 0; i < _sample_size; ++i) {
+      if (_mv_sample[i][coordinate] <= x) {
+        num += 1;
+      }
+    }
+    return num / (_sample_size + 1);
+  }
+
+  virtual void calc_margin_cdfs_on_grid() const {
+    for (size_t i = 0; i < _sample_size; ++i) {
+      vec_t tmp(_dim);
+      _margin_cdfs_on_grid.push_back(tmp);
+      for (size_t coordinate = 0; coordinate < _dim; ++coordinate) {
+        _margin_cdfs_on_grid[i][coordinate] =
+            margin_cdf(coordinate, _mv_sample[i][coordinate]);
+      }
+    }
+  }
+
+  virtual num_t margin_cdf_on_grid(size_t coordinate,
+                                   size_t element_num) const {
+    return _margin_cdfs_on_grid[element_num][coordinate];
+  }
+
   static result<emv_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
@@ -129,6 +155,7 @@ public:
 protected:
   size_t _dim;
   std::vector<vec_t> _mv_samples;
+  mutable std::vector<vec_t> _margin_cdfs_on_grid;
 };
 }
 

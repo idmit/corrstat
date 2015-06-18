@@ -18,6 +18,7 @@ public:
   mv_distribution_t(size_t dim) : _dim(dim) {}
   virtual num_t density(const vec_t& x) const = 0;
   virtual num_t cdf(const vec_t& x) const = 0;
+  virtual num_t margin_cdf(size_t coordinate, num_t x) const = 0;
   virtual size_t dim() const { return _dim; }
   virtual vec_t sample() const = 0;
 
