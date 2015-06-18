@@ -20,10 +20,12 @@ namespace cst {
 class emv_distribution_t : public mv_distribution_i {
 public:
   emv_distribution_t() {}
-  emv_distribution_t(const std::vector<vec_t> &mv_samples)
-      : _dim(mv_samples[0].size()), _mv_samples(mv_samples) {
+  emv_distribution_t(const std::vector<vec_t>& mv_sample)
+      : _dim(mv_sample[0].size()),
+        _sample_size(mv_sample.size()),
+        _mv_sample(mv_sample) {
 
-    std::sort(_mv_samples.begin(), _mv_samples.end(), less);
+    std::sort(_mv_sample.begin(), _mv_sample.end(), less);
   }
 
   virtual num_t density(const vec_t& x) const {
@@ -34,10 +36,10 @@ public:
 
   virtual num_t cdf(const vec_t& x) const {
     num_t num = 0;
-    for (size_t i = 0; i < _mv_samples.size(); ++i) {
+    for (size_t i = 0; i < _sample_size; ++i) {
       bool ok = true;
       for (size_t k = 0; k < _dim; ++k) {
-        if (_mv_samples[i][k] > x[k]) {
+        if (_mv_sample[i][k] > x[k]) {
           ok = false;
           break;
         }
@@ -46,7 +48,7 @@ public:
         num += 1;
       }
     }
-    return num / _mv_samples.size();
+    return num / _sample_size;
   }
 
   virtual size_t dim() const { return _dim; }
@@ -85,30 +87,31 @@ public:
   static result<emv_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
+    // TODO: Check for std io errors.
 
-    std::vector<vec_t> mv_samples;
-    num_t sample;
+    std::vector<vec_t> mv_sample;
+    num_t element;
     std::string line;
     std::stringstream line_stream;
 
     if (std::getline(stream, line)) {
       line_stream.str(line);
-      vec_t samples;
-      while (line_stream >> sample) {
-        samples.push_back(sample);
+      vec_t sample;
+      while (line_stream >> element) {
+        sample.push_back(element);
       }
-      mv_samples.push_back(samples);
+      mv_sample.push_back(sample);
     }
 
     while (std::getline(stream, line)) {
       line_stream.str(line);
       line_stream.clear();
-      vec_t samples;
-      mv_samples.push_back(samples);
+      vec_t sample;
+      mv_sample.push_back(sample);
       size_t i = 0;
-      while (line_stream >> sample) {
-        if (i < mv_samples[0].size()) {
-          mv_samples.back().push_back(sample);
+      while (line_stream >> element) {
+        if (i < mv_sample[0].size()) {
+          mv_sample.back().push_back(element);
           ++i;
         } else {
           return result<emv_distribution_t>::error(
@@ -116,7 +119,7 @@ public:
               error_t::io_error);
         }
       }
-      if (i < mv_samples[0].size()) {
+      if (i < mv_sample[0].size()) {
         return result<emv_distribution_t>::error(
             "Some row has less columns than the first one.", error_t::io_error);
       }
@@ -126,7 +129,7 @@ public:
     stream.close();
 
     if (reached_eof) {
-      emv_distribution_t d(mv_samples);
+      emv_distribution_t d(mv_sample);
       return result<emv_distribution_t>::ok(d);
     }
 
@@ -137,24 +140,26 @@ public:
   void export_cdf(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
+    // TODO: Check for std io errors.
 
-    vec_t samples;
-    for (size_t i = 0; i < _mv_samples.size(); ++i) {
+    vec_t sample;
+    for (size_t i = 0; i < _sample_size; ++i) {
       for (size_t k = 0; k < _dim; ++k) {
-        stream << _mv_samples[i][k] << ' ';
+        stream << _mv_sample[i][k] << ' ';
       }
-      vec_t x;
-      for (size_t k = 0; k < _dim; ++k) {
-        x.push_back(_mv_samples[i][k]);
-      }
-      stream << cdf(x) << '\n';
+      stream << cdf(_mv_sample[i]) << '\n';
     }
     stream.close();
   }
 
+  size_t sample_size() const { return _sample_size; }
+
+  virtual void set_sample_as_grid() const { _grid = _mv_sample; }
+
 protected:
   size_t _dim;
-  std::vector<vec_t> _mv_samples;
+  size_t _sample_size;
+  std::vector<vec_t> _mv_sample;
   mutable std::vector<vec_t> _margin_cdfs_on_grid;
 };
 }
