@@ -10,10 +10,11 @@
 #define __corrstat__copula_i__
 
 #include "../types.h"
+#include "mv_grid.h"
 
 namespace cst {
 
-class copula_i {
+class copula_i : public mv_grid_i {
 public:
   virtual num_t operator()(const vec_t& x) const = 0;
   virtual num_t density(const vec_t& x) const = 0;

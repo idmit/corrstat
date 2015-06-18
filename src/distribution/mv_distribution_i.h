@@ -13,7 +13,7 @@
 
 namespace cst {
 
-class mv_distribution_i {
+class mv_distribution_i : public mv_grid_i {
 public:
   virtual num_t density(const vec_t& x) const = 0;
   virtual num_t cdf(const vec_t& x) const = 0;
