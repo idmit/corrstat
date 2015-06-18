@@ -26,7 +26,7 @@ public:
   }
 
   virtual num_t inv_gen(num_t x) const {
-      return std::pow(_theta * x + 1, -1 / _theta));
+    return std::pow(_theta * x + 1, -1 / _theta);
   }
 
 private:
