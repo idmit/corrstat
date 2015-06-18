@@ -41,7 +41,11 @@ class normal_distribution_t : public distribution_t {
   virtual bool is_supp_lower_bound_inclusive() const { return false; }
   virtual bool is_supp_upper_bound_inclusive() const { return false; }
 
-  virtual num_t sample() { return 0; }
+  virtual num_t sample() const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
 private:
   static num_t erf(num_t x) {
