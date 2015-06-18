@@ -18,6 +18,11 @@ public:
   virtual num_t operator()(num_t x) const = 0;
 };
 
+class mv_kernel {
+public:
+  virtual num_t operator()(vec_t x) const = 0;
+};
+
 class gaussian_ker : public kernel {
 public:
   gaussian_ker(num_t sd) : _sd(sd) {}
@@ -28,6 +33,19 @@ public:
 
 private:
   num_t _sd;
+};
+
+class mv_gaussian_ker : public mv_kernel {
+public:
+  num_t operator()(num_t x, num_t y) const {
+    return std::exp(-(x * x + y * y) / 2) / (2 * PI);
+  }
+
+  virtual num_t operator()(vec_t x) const {
+    assert(x.size() == 2);
+    num_t _x = x[0], _y = x[1];
+    return std::exp(-(_x * _x + _y * _y) / 2) / (2 * PI);
+  }
 };
 }
 
