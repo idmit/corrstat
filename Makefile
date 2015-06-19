@@ -52,7 +52,7 @@ all: bindir builddirs $(TARGET)
 -include $(DEP)
 
 $(TARGET): $(OBJ)
-	$(MAKE) -C $(SPNDIR)
+	$(MAKE) -C $(SPNDIR) DEBUG=$(DEBUG)
 	$(LD) $^ -o $(BIN_DIR)/$@ $(LDFLAGS) $(LIBS)
 
 bindir:
@@ -66,5 +66,8 @@ $(BUILD_DIR):
 clean:
 	rm -rf $(BIN_DIR)/$(TARGET)
 	rm -rf build/*
+
+cleanall: clean
+	$(MAKE) -C $(SPNDIR) clean
 
 $(foreach bdir, $(BUILD_DIR), $(eval $(call make-goal, $(bdir))))
