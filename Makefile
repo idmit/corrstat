@@ -20,7 +20,7 @@ MODULES   = distribution .
 SRC_DIR   = $(addprefix src/, $(MODULES))
 BUILD_DIR = $(addprefix build/, $(MODULES))
 BIN_DIR   = bin
-SPNDIR =  lib/spn
+SPNDIR    =  lib/spn
 
 SRC       = $(foreach sdir, $(SRC_DIR), $(wildcard $(sdir)/*.cpp))
 OBJ       = $(patsubst src/%.cpp, build/%.o, $(SRC))
@@ -38,8 +38,6 @@ else
 	LDFLAGS = -O3
 endif
 
--include $(DEP)
-
 vpath %.cpp $(SRC_DIR)
 
 define make-goal
@@ -50,6 +48,8 @@ endef
 .PHONY: all checkdirs clean
 
 all: bindir builddirs $(TARGET)
+
+-include $(DEP)
 
 $(TARGET): $(OBJ)
 	$(MAKE) -C $(SPNDIR)
