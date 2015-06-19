@@ -17,7 +17,7 @@ class mv_grid_i {
 public:
   virtual void set_grid(const std::vector<vec_t>& grid) const { _grid = grid; }
   virtual void set_grid(const vec_t& grid_begin, const vec_t& grid_end,
-                        const size_t grid_detail) const {
+                        size_t grid_detail) const {
     _grid.clear();
     size_t dim = grid_begin.size();
     vec_t steps(dim);
@@ -26,17 +26,25 @@ public:
       steps[k] = (grid_end[k] - grid_begin[k]) / grid_detail;
     }
 
-    // FIXME: This is grid is only diagonal
-    for (size_t i = 0; i < grid_detail; ++i) {
-      vec_t tmp(dim);
-      for (size_t k = 0; k < dim; ++k) {
-        tmp[k] = grid_begin[k] + i * steps[k];
-      }
-    }
+    rec_grid(grid_begin, grid_end, steps, grid_detail, 0, dim, vec_t());
   }
   virtual const std::vector<vec_t>& grid() const { return _grid; }
 
 protected:
+  void rec_grid(const vec_t& grid_begin, const vec_t& grid_end,
+                const vec_t& steps, size_t grid_detail, size_t coordinate,
+                size_t dim, vec_t point) const {
+    point.push_back(0);
+    for (size_t i = 0; i < grid_detail + 1; ++i) {
+      point[coordinate] = grid_begin[coordinate] + i * steps[coordinate];
+      if (coordinate + 1 < dim) {
+        rec_grid(grid_begin, grid_end, steps, grid_detail, coordinate + 1, dim,
+                 point);
+      } else {
+        _grid.push_back(point);
+      }
+    }
+  }
   mutable std::vector<vec_t> _grid;
 };
 }
