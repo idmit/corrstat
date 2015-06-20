@@ -13,8 +13,6 @@
 #include "distribution.h"
 #include "mv_distribution.h"
 
-#include "shared_ptr.hpp"
-
 namespace cst {
 
 class invcopula_t : public copula_t {
