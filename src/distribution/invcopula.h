@@ -47,7 +47,7 @@ public:
     return _mv_dist->cdf(cp);
   }
 
-  virtual num_t density(const vec_t &x) {
+  virtual num_t density(const vec_t &x) const {
     // TODO: Implement if needed.
     assert(false);
     return 0;

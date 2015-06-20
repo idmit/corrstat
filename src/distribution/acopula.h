@@ -27,6 +27,12 @@ public:
     return inv_gen(a);
   }
 
+  virtual num_t density(const vec_t& x) const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
+
   virtual num_t gen(num_t x) const = 0;
   virtual num_t inv_gen(num_t x) const = 0;
 };
