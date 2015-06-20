@@ -18,6 +18,7 @@
 namespace cst {
 
 class uniform_distribution_t : public distribution_t {
+public:
   uniform_distribution_t(num_t lower, num_t upper)
       : _lower(lower), _upper(upper), _dist(lower, upper) {}
 
