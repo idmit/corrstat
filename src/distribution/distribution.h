@@ -58,7 +58,7 @@ public:
     vec_t samples(size);
 
     for (size_t i = 0; i < size; ++i) {
-      samples.push_back(sample());
+      samples[i] = sample();
     }
     return samples;
   }
