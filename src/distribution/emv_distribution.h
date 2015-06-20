@@ -10,6 +10,7 @@
 #define corrstat_emv_distribution_h
 
 #include <algorithm>
+#include <cerrno>
 #include <fstream>
 #include <sstream>
 
@@ -87,7 +88,11 @@ public:
   static result<emv_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
-    // TODO: Check for std io errors.
+
+    if (stream.fail()) {
+      return result<emv_distribution_t>::error(strerror(errno),
+                                               error_t::io_error);
+    }
 
     std::vector<vec_t> mv_sample;
     num_t element;
@@ -137,10 +142,13 @@ public:
                                              error_t::io_error);
   }
 
-  void export_cdf(std::string path_to_data) {
-    std::fstream stream;
-    stream.open(path_to_data.c_str());
-    // TODO: Check for std io errors.
+  result<void*> export_cdf(std::string path_to_data) {
+    std::ofstream stream;
+    stream.open(path_to_data.c_str(), std::ofstream::trunc);
+
+    if (stream.fail()) {
+      return result<void*>::error(strerror(errno), error_t::io_error);
+    }
 
     vec_t sample;
     for (size_t i = 0; i < _sample_size; ++i) {
@@ -150,6 +158,7 @@ public:
       stream << cdf(_mv_sample[i]) << '\n';
     }
     stream.close();
+    return result<void*>::ok(NULL);
   }
 
   size_t sample_size() const { return _sample_size; }
