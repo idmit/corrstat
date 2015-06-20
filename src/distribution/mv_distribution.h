@@ -26,6 +26,22 @@ public:
   virtual size_t dim() const { return _dim; }
   virtual vec_t sample() const = 0;
 
+  virtual void calc_margin_cdfs_on_grid() const {
+    for (size_t i = 0; i < _grid.size(); ++i) {
+      vec_t tmp(_dim);
+      _margin_cdfs_on_grid.push_back(tmp);
+      for (size_t coordinate = 0; coordinate < _dim; ++coordinate) {
+        _margin_cdfs_on_grid[i][coordinate] =
+            margin_cdf(coordinate, _grid[i][coordinate]);
+      }
+    }
+  }
+
+  virtual num_t margin_cdf_on_grid(size_t coordinate,
+                                   size_t element_num) const {
+    return _margin_cdfs_on_grid[element_num][coordinate];
+  }
+
   virtual result<void*> export_cdf(std::string path_to_data) {
     std::ofstream stream;
     stream.open(path_to_data.c_str(), std::ofstream::trunc);
@@ -48,6 +64,7 @@ public:
 
 protected:
   size_t _dim;
+  mutable std::vector<vec_t> _margin_cdfs_on_grid;
 };
 }
 

@@ -48,7 +48,7 @@ public:
 
     vec_t sample;
     for (size_t i = 0; i < _grid.size(); ++i) {
-      stream << _grid[0][i] << ' ' << cdf(_grid[0][i]) << '\n';
+      stream << _grid[i][0] << ' ' << cdf(_grid[i][0]) << '\n';
     }
     stream.close();
     return result<void*>::ok(NULL);
