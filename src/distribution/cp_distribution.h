@@ -23,13 +23,29 @@ public:
     assert(copula->dim() == margins.size());
   }
 
-  virtual num_t cdf(const vec_t& x) {
+  virtual num_t density(const vec_t& x) const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
+
+  virtual num_t cdf(const vec_t& x) const {
     vec_t cp(_dim);
     for (size_t i = 0; i < _dim; ++i) {
       cp[i] = _margins[i]->cdf(x[i]);
     }
 
     return _copula->call(cp);
+  }
+
+  virtual num_t margin_cdf(size_t coordinate, num_t x) const {
+    return _margins[coordinate]->cdf(x);
+  }
+
+  virtual vec_t sample() const {
+    // TODO: Implement if needed.
+    assert(false);
+    return vec_t(1, 0);
   }
 
 private:
