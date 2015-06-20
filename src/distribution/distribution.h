@@ -15,6 +15,8 @@
 
 #include "distribution_i.h"
 
+#include <boost/random/mersenne_twister.hpp>
+
 namespace cst {
 
 class distribution_t : public distribution_i {
@@ -50,7 +52,22 @@ public:
     stream.close();
     return result<void*>::ok(NULL);
   }
+
+  virtual vec_t samples(size_t size) const {
+    vec_t samples(size);
+
+    for (size_t i = 0; i < size; ++i) {
+      samples.push_back(sample());
+    }
+    return samples;
+  }
+
+protected:
+  static boost::random::mt19937 _eng;
 };
+
+boost::random::mt19937 distribution_t::_eng =
+    boost::random::mt19937((unsigned)std::time(NULL));
 }
 
 #endif /* defined(__corrstat__distribution__) */

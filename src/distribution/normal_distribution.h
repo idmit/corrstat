@@ -13,11 +13,13 @@
 
 #include "distribution.h"
 
+#include <boost/random/normal_distribution.hpp>
+
 namespace cst {
 
 class normal_distribution_t : public distribution_t {
 public:
-  normal_distribution_t(num_t m, num_t sd) : _m(m), _sd(sd) {}
+  normal_distribution_t(num_t m, num_t sd) : _m(m), _sd(sd), _dist(m, sd) {}
 
   virtual num_t density(num_t x) const {
     num_t d = x - _m;
@@ -42,11 +44,7 @@ public:
   virtual bool is_supp_lower_bound_inclusive() const { return false; }
   virtual bool is_supp_upper_bound_inclusive() const { return false; }
 
-  virtual num_t sample() const {
-    // TODO: Implement if needed.
-    assert(false);
-    return 0;
-  }
+  virtual num_t sample() const { return _dist(_eng); }
 
 private:
   static num_t erf(num_t x) {
@@ -143,6 +141,7 @@ private:
   }
 
   num_t _m, _sd;
+  mutable boost::random::normal_distribution<num_t> _dist;
 };
 }
 

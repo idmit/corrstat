@@ -13,11 +13,13 @@
 
 #include "distribution.h"
 
+#include <boost/random/uniform_real_distribution.hpp>
+
 namespace cst {
 
 class uniform_distribution_t : public distribution_t {
   uniform_distribution_t(num_t lower, num_t upper)
-      : _lower(lower), _upper(upper) {}
+      : _lower(lower), _upper(upper), _dist(lower, upper) {}
 
   virtual num_t density(num_t x) const {
     if (x < _lower || _upper < x) {
@@ -54,14 +56,11 @@ class uniform_distribution_t : public distribution_t {
   virtual bool is_supp_lower_bound_inclusive() const { return true; }
   virtual bool is_supp_upper_bound_inclusive() const { return true; }
 
-  virtual num_t sample() const {
-    // TODO: Implement if needed.
-    assert(false);
-    return 0;
-  }
+  virtual num_t sample() const { return _dist(_eng); }
 
 private:
   num_t _lower, _upper;
+  boost::random::uniform_real_distribution<num_t> _dist;
 };
 }
 
