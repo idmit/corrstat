@@ -13,20 +13,14 @@
 #include "distribution.h"
 #include "mv_distribution.h"
 
-#include "shared_ptr.hpp"
-
 namespace cst {
 
 class cp_distribution_t : public mv_distribution_t {
 public:
-  cp_distribution_t(copula_t* copula,
-                    const std::vector<distribution_t*>& margins)
-      : mv_distribution_t(copula->dim()), _copula(copula) {
+  cp_distribution_t(const copula_t* copula,
+                    const std::vector<const distribution_t*>& margins)
+      : mv_distribution_t(copula->dim()), _copula(copula), _margins(margins) {
     assert(copula->dim() == margins.size());
-    _margins.reserve(margins.size());
-    for (size_t i = 0; i < margins.size(); ++i) {
-      _margins.push_back(shared_ptr<distribution_t>(margins[i]));
-    }
   }
 
   virtual num_t cdf(const vec_t& x) {
@@ -39,8 +33,8 @@ public:
   }
 
 private:
-  shared_ptr<copula_t> _copula;
-  std::vector<shared_ptr<distribution_t> > _margins;
+  const copula_t* _copula;
+  std::vector<const distribution_t*> _margins;
 };
 }
 
