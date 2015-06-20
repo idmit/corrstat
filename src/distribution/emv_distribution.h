@@ -10,19 +10,17 @@
 #define corrstat_emv_distribution_h
 
 #include <algorithm>
-#include <cerrno>
 #include <fstream>
-#include <sstream>
 
 #include "mv_distribution_i.h"
 
 namespace cst {
 
-class emv_distribution_t : public mv_distribution_i {
+class emv_distribution_t : public mv_distribution_t {
 public:
-  emv_distribution_t() {}
+  emv_distribution_t() : mv_distribution_t(0) {}
   emv_distribution_t(const std::vector<vec_t>& mv_sample)
-      : _dim(mv_sample[0].size()),
+      : mv_distribution_t(mv_sample[0].size()),
         _sample_size(mv_sample.size()),
         _mv_sample(mv_sample) {
 
@@ -142,31 +140,11 @@ public:
                                              error_t::io_error);
   }
 
-  result<void*> export_cdf(std::string path_to_data) {
-    std::ofstream stream;
-    stream.open(path_to_data.c_str(), std::ofstream::trunc);
-
-    if (stream.fail()) {
-      return result<void*>::error(strerror(errno), error_t::io_error);
-    }
-
-    vec_t sample;
-    for (size_t i = 0; i < _sample_size; ++i) {
-      for (size_t k = 0; k < _dim; ++k) {
-        stream << _mv_sample[i][k] << ' ';
-      }
-      stream << cdf(_mv_sample[i]) << '\n';
-    }
-    stream.close();
-    return result<void*>::ok(NULL);
-  }
-
   size_t sample_size() const { return _sample_size; }
 
   virtual void set_sample_as_grid() const { _grid = _mv_sample; }
 
 protected:
-  size_t _dim;
   size_t _sample_size;
   std::vector<vec_t> _mv_sample;
   mutable std::vector<vec_t> _margin_cdfs_on_grid;

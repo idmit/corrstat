@@ -10,7 +10,6 @@
 #define corrstat_e_distribution_h
 
 #include <algorithm>
-#include <cerrno>
 #include <cmath>
 #include <fstream>
 
@@ -19,7 +18,7 @@
 
 namespace cst {
 
-class e_distribution_t : public distribution_i {
+class e_distribution_t : public distribution_t {
 public:
   e_distribution_t() {}
   e_distribution_t(const vec_t& sample)
@@ -122,22 +121,6 @@ public:
 
     return result<e_distribution_t>::error("File contains invalid number.",
                                            error_t::io_error);
-  }
-
-  result<void*> export_cdf(std::string path_to_data) {
-    std::ofstream stream;
-    stream.open(path_to_data.c_str(), std::ofstream::trunc);
-
-    if (stream.fail()) {
-      return result<void*>::error(strerror(errno), error_t::io_error);
-    }
-
-    vec_t sample;
-    for (size_t i = 0; i < _sample.size(); ++i) {
-      stream << _sample[i] << ' ' << cdf(_sample[i]) << '\n';
-    }
-    stream.close();
-    return result<void*>::ok(NULL);
   }
 
   size_t sample_size() const { return _sample_size; }

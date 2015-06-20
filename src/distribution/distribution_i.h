@@ -9,11 +9,12 @@
 #ifndef __corrstat__distribution_i__
 #define __corrstat__distribution_i__
 
+#include "mv_grid.h"
 #include "../types.h"
 
 namespace cst {
 
-class distribution_i {
+class distribution_i : public mv_grid_i {
 public:
   virtual num_t prob(num_t x) const = 0;
   virtual num_t density(num_t x) const = 0;
