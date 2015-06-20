@@ -16,6 +16,7 @@
 namespace cst {
 
 class normal_distribution_t : public distribution_t {
+public:
   normal_distribution_t(num_t m, num_t sd) : _m(m), _sd(sd) {}
 
   virtual num_t density(num_t x) const {
@@ -29,11 +30,11 @@ class normal_distribution_t : public distribution_t {
   }
 
   virtual num_t inv_cdf(num_t p) const {
-    return _m + _sd * std::sqrt(2) * normal_distribution_t::inv_cdf(2 * p - 1);
+    return _m + _sd * std::sqrt(2) * normal_distribution_t::inv_erf(2 * p - 1);
   }
 
-  virtual num_t mean() constconst { return _m; }
-  virtual num_t variance() { return _sd * _sd; }
+  virtual num_t mean() const { return _m; }
+  virtual num_t variance() const { return _sd * _sd; }
 
   virtual num_t supp_lower_bound() const { return -INFINITY; }
   virtual num_t supp_upper_bound() const { return INFINITY; }
