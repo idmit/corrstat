@@ -9,6 +9,8 @@
 #ifndef corrstat_e_copula_h
 #define corrstat_e_copula_h
 
+#include <cerrno>
+
 #include "copula.h"
 #include "distribution.h"
 #include "kernel.h"
@@ -60,9 +62,13 @@ public:
     return mirror_density(x, ker);
   }
 
-  void export_density(std::string path_to_data) {
-    std::fstream stream;
-    stream.open(path_to_data.c_str());
+  result<void*> export_density(std::string path_to_data) {
+    std::ofstream stream;
+    stream.open(path_to_data.c_str(), std::ofstream::trunc);
+
+    if (stream.fail()) {
+      return result<void*>::error(strerror(errno), error_t::io_error);
+    }
 
     vec_t samples;
     for (size_t i = 0; i < _grid.size(); ++i) {
@@ -72,6 +78,7 @@ public:
       stream << density(_grid[i]) << '\n';
     }
     stream.close();
+    return result<void*>::ok(NULL);
   }
 
   virtual size_t dim() const { return _dim; }
