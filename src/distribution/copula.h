@@ -30,7 +30,8 @@ public:
     stream.open(path_to_data.c_str(), std::ofstream::trunc);
 
     if (stream.fail()) {
-      return result<void*>::error(strerror(errno), error_t::io_error);
+      std::string err_text = path_to_data + std::string(": ") + strerror(errno);
+      return result<void*>::error(err_text, error_t::io_error);
     }
 
     vec_t samples;

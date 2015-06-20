@@ -87,9 +87,11 @@ public:
     std::fstream stream;
     stream.open(path_to_data.c_str());
 
+    std::string err_text;
+
     if (stream.fail()) {
-      return result<emv_distribution_t>::error(strerror(errno),
-                                               error_t::io_error);
+      err_text = path_to_data + std::string(": ") + strerror(errno);
+      return result<emv_distribution_t>::error(err_text, error_t::io_error);
     }
 
     std::vector<vec_t> mv_sample;
@@ -117,14 +119,15 @@ public:
           mv_sample.back().push_back(element);
           ++i;
         } else {
-          return result<emv_distribution_t>::error(
-              "Some row has more columns than the first one.",
-              error_t::io_error);
+          err_text = path_to_data + std::string(": ") +
+                     "Some row has more columns than the first one.";
+          return result<emv_distribution_t>::error(err_text, error_t::io_error);
         }
       }
       if (i < mv_sample[0].size()) {
-        return result<emv_distribution_t>::error(
-            "Some row has less columns than the first one.", error_t::io_error);
+        err_text = path_to_data + std::string(": ") +
+                   "Some row has less columns than the first one.";
+        return result<emv_distribution_t>::error(err_text, error_t::io_error);
       }
     }
 
@@ -136,8 +139,9 @@ public:
       return result<emv_distribution_t>::ok(d);
     }
 
-    return result<emv_distribution_t>::error("File contains invalid number.",
-                                             error_t::io_error);
+    err_text =
+        path_to_data + std::string(": ") + "File contains invalid number.";
+    return result<emv_distribution_t>::error(err_text, error_t::io_error);
   }
 
   size_t sample_size() const { return _sample_size; }
