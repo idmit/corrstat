@@ -125,6 +125,14 @@ public:
 
   size_t sample_size() const { return _sample_size; }
 
+  virtual void set_sample_as_grid() const {
+    _grid.clear();
+
+    for (size_t i = 0; i < _sample.size(); ++i) {
+      _grid.push_back(vec_t(_sample[i]));
+    }
+  }
+
 private:
   size_t _sample_size;
   vec_t _sample;
