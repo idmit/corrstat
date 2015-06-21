@@ -14,16 +14,15 @@
 #include "copula.h"
 #include "distribution.h"
 #include "kernel.h"
-#include "emv_distribution.h"
-
-#include "shared_ptr.hpp"
+#include "mv_distribution.h"
+#include "normal_distribution.h"
 
 namespace cst {
 
-class e_copula_t : public copula_i {
+class e_copula_t : public copula_t {
 public:
-  e_copula_t(const emv_distribution_t* mv_dist)
-      : _dim(mv_dist->dim()), _mv_dist(mv_dist) {}
+  e_copula_t(const mv_distribution_t* mv_dist)
+      : copula_t(mv_dist->dim()), _mv_dist(mv_dist) {}
 
   virtual num_t call(const vec_t& x) const {
     // TODO: Implement if needed.
@@ -39,7 +38,7 @@ public:
 
     _mv_dist->calc_margin_cdfs_on_grid();
 
-    for (size_t i = 0; i < sample_size(); ++i) {
+    for (size_t i = 0; i < dist_grid_size(); ++i) {
       num_t U = _mv_dist->margin_cdf_on_grid(0, i);
       num_t V = _mv_dist->margin_cdf_on_grid(1, i);
 
@@ -54,7 +53,28 @@ public:
              ker((x[0] - 2 + U) / h) * ker((x[1] - 2 + V) / h);
     }
 
-    return acc / (sample_size() * h * h);
+    return acc / (dist_grid_size() * h * h);
+  }
+
+  virtual num_t transformed_density(const vec_t& x, mv_gaussian_ker ker,
+                                    num_t h = 0.5) const {
+    num_t acc = 0;
+    normal_distribution_t gauss(0, 1);
+    num_t gu = gauss.inv_cdf(x[0]), gv = gauss.inv_cdf(x[1]);
+
+    _mv_dist->calc_margin_cdfs_on_grid();
+
+    for (size_t i = 0; i < dist_grid_size(); ++i) {
+
+      num_t U = _mv_dist->margin_cdf(0, i);
+      num_t V = _mv_dist->margin_cdf(1, i);
+
+      num_t gU = gauss.inv_cdf(U), gV = gauss.inv_cdf(V);
+
+      acc += ker((gu - gU) / h, (gv - gV) / h);
+    }
+
+    return acc / (dist_grid_size() * h * h * gu * gv);
   }
 
   virtual num_t density(const vec_t& x) const {
@@ -62,32 +82,10 @@ public:
     return mirror_density(x, ker);
   }
 
-  result<void*> export_density(std::string path_to_data) {
-    std::ofstream stream;
-    stream.open(path_to_data.c_str(), std::ofstream::trunc);
-
-    if (stream.fail()) {
-      return result<void*>::error(strerror(errno), error_t::io_error);
-    }
-
-    vec_t samples;
-    for (size_t i = 0; i < _grid.size(); ++i) {
-      for (size_t k = 0; k < _dim; ++k) {
-        stream << _grid[i][k] << ' ';
-      }
-      stream << density(_grid[i]) << '\n';
-    }
-    stream.close();
-    return result<void*>::ok(NULL);
-  }
-
-  virtual size_t dim() const { return _dim; }
-
-  size_t sample_size() const { return _mv_dist->sample_size(); }
+  size_t dist_grid_size() const { return _mv_dist->grid().size(); }
 
 private:
-  size_t _dim;
-  const emv_distribution_t* _mv_dist;
+  const mv_distribution_t* _mv_dist;
 };
 }
 
