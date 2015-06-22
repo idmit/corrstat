@@ -12,6 +12,7 @@ set hidden3d
 set dgrid3d splines
 splot filename with lines ls 3 title filename
 
+set cntrparam levels 25
 set contour
 set view map
 unset surface
