@@ -26,7 +26,7 @@ public:
   }
 
   virtual num_t inv_gen(num_t x) const {
-    return -std::log((std::exp(-x) - 1) * (std::exp(-_theta) - 1) + 1) / _theta;
+    return -std::log(1 + std::exp(-x) * (std::exp(-_theta) - 1)) / _theta;
   }
 
 private:
