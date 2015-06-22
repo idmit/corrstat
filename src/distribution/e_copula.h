@@ -66,8 +66,8 @@ public:
 
     for (size_t i = 0; i < dist_grid_size(); ++i) {
 
-      num_t U = _mv_dist->margin_cdf(0, i);
-      num_t V = _mv_dist->margin_cdf(1, i);
+      num_t U = _mv_dist->margin_cdf_on_grid(0, i);
+      num_t V = _mv_dist->margin_cdf_on_grid(1, i);
 
       num_t gU = gauss.inv_cdf(U), gV = gauss.inv_cdf(V);
 
