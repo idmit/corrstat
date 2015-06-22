@@ -21,8 +21,8 @@ namespace cst {
 
 class e_copula_t : public copula_t {
 public:
-  e_copula_t(const mv_distribution_t* mv_dist)
-      : copula_t(mv_dist->dim()), _mv_dist(mv_dist) {}
+  e_copula_t(const mv_distribution_t* mv_dist, bool m)
+      : copula_t(mv_dist->dim()), _mv_dist(mv_dist), _m(m) {}
 
   virtual num_t call(const vec_t& x) const {
     // TODO: Implement if needed.
@@ -75,8 +75,13 @@ public:
   }
 
   virtual num_t density(const vec_t& x) const {
-    gaussian_ker ker;
-    return mirror_density(x, ker);
+    if (_m) {
+      gaussian_ker ker;
+      return mirror_density(x, ker);
+    } else {
+      mv_gaussian_ker ker;
+      return transformed_density(x, ker);
+    }
   }
 
   size_t dist_grid_size() const { return _mv_dist->grid().size(); }
@@ -88,6 +93,7 @@ public:
 
 private:
   const mv_distribution_t* _mv_dist;
+  bool _m;
 };
 }
 

@@ -23,19 +23,30 @@
 int main(int argc, char **argv) {
   result<cst::emv_distribution_t> dist = cst::emv_distribution_t::read(argv[1]);
   if (dist) {
-    cst::e_copula_t e_cop(dist.borrow());
+    cst::e_copula_t e_cop1(dist.borrow(), true);
+    cst::e_copula_t e_cop2(dist.borrow(), false);
 
     dist.borrow()->set_sample_as_grid();
 
-    e_cop.set_grid(cst::vec_t(2, 0.01), cst::vec_t(2, 0.99), 30);
+    e_cop1.set_grid(cst::vec_t(2, 0.05), cst::vec_t(2, 0.95), 30);
+    e_cop2.set_grid(cst::vec_t(2, 0.05), cst::vec_t(2, 0.95), 30);
 
-    result<void *> res = e_cop.export_density(argv[2]);
+    result<void *> res = e_cop1.export_density(argv[2]);
+
     //    result<void *> res = (*dist).export_cdf(argv[2]);
     if (!res.is_ok()) {
       printf("%s\n", res.err().what().c_str());
     } else {
       printf("%s\n", "Finished.");
     }
+
+    res = e_cop2.export_density(argv[3]);
+    if (!res.is_ok()) {
+      printf("%s\n", res.err().what().c_str());
+    } else {
+      printf("%s\n", "Finished.");
+    }
+
   } else {
     printf("%s\n", dist.err().what().c_str());
   }
