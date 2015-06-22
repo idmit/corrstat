@@ -14,32 +14,30 @@
 #include "distribution/gumbel_copula.h"
 #include "distribution/frank_copula.h"
 #include "distribution/uniform_distribution.h"
+#include "distribution/normal_distribution.h"
 #include "distribution/e_copula.h"
 #include "distribution/e_distribution.h"
 #include "distribution/cp_distribution.h"
+#include "distribution/emv_distribution.h"
 
 int main(int argc, char **argv) {
-  cst::frank_copula_t cop(2, 1000);
-  cst::uniform_distribution_t uni(0, 1);
+  result<cst::emv_distribution_t> dist = cst::emv_distribution_t::read(argv[1]);
+  if (dist) {
+    cst::e_copula_t e_cop(dist.borrow());
 
-  cst::e_distribution_t x(uni.samples(500)), y(uni.samples(500));
+    dist.borrow()->set_sample_as_grid();
 
-  std::vector<const cst::distribution_t *> margins;
-  margins.push_back(&x);
-  margins.push_back(&y);
+    e_cop.set_grid(cst::vec_t(2, 0), cst::vec_t(2, 1), 30);
 
-  cst::cp_distribution_t dist(&cop, margins);
-
-  dist.set_grid(cst::vec_t(2, -2), cst::vec_t(2, 3), 30);
-
-  cst::e_copula_t e_cop(&dist);
-  e_cop.set_grid(cst::vec_t(2, -2), cst::vec_t(2, 3), 30);
-
-  result<void *> res = e_cop.export_density(argv[1]);
-  if (!res.is_ok()) {
-    printf("%s\n", res.err().what().c_str());
+    result<void *> res = e_cop.export_density(argv[2]);
+    //    result<void *> res = (*dist).export_cdf(argv[2]);
+    if (!res.is_ok()) {
+      printf("%s\n", res.err().what().c_str());
+    } else {
+      printf("%s\n", "Finished.");
+    }
   } else {
-    printf("%s\n", "Finished.");
+    printf("%s\n", dist.err().what().c_str());
   }
 
   return 0;
