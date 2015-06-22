@@ -36,8 +36,6 @@ public:
                                num_t h = 0.05) const {
     num_t acc = 0;
 
-    _mv_dist->calc_margin_cdfs_on_grid();
-
     for (size_t i = 0; i < dist_grid_size(); ++i) {
       num_t U = _mv_dist->margin_cdf_on_grid(0, i);
       num_t V = _mv_dist->margin_cdf_on_grid(1, i);
@@ -62,8 +60,6 @@ public:
     normal_distribution_t gauss(0, 1);
     num_t gu = gauss.inv_cdf(x[0]), gv = gauss.inv_cdf(x[1]);
 
-    _mv_dist->calc_margin_cdfs_on_grid();
-
     for (size_t i = 0; i < dist_grid_size(); ++i) {
 
       num_t U = _mv_dist->margin_cdf_on_grid(0, i);
@@ -84,6 +80,11 @@ public:
   }
 
   size_t dist_grid_size() const { return _mv_dist->grid().size(); }
+
+  virtual result<void*> export_density(std::string path_to_data) {
+    _mv_dist->calc_margin_cdfs_on_grid();
+    return copula_t::export_density(path_to_data);
+  }
 
 private:
   const mv_distribution_t* _mv_dist;
