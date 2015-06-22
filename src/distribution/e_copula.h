@@ -55,7 +55,7 @@ public:
   }
 
   virtual num_t transformed_density(const vec_t& x, mv_gaussian_ker ker,
-                                    num_t h = 0.05) const {
+                                    num_t h = 0.2) const {
     num_t acc = 0;
     normal_distribution_t gauss(0, 1);
     num_t gu = gauss.inv_cdf(x[0]), gv = gauss.inv_cdf(x[1]);
