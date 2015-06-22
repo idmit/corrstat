@@ -25,7 +25,7 @@ public:
 
 class gaussian_ker : public kernel {
 public:
-  gaussian_ker(num_t sd) : _sd(sd) {}
+  gaussian_ker(num_t sd = 1) : _sd(sd) {}
 
   virtual num_t operator()(num_t x) const {
     return std::exp(-(x * x) / (2 * _sd * _sd)) / (_sd * std::sqrt(2 * PI));

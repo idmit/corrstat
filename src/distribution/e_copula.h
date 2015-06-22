@@ -79,7 +79,7 @@ public:
   }
 
   virtual num_t density(const vec_t& x) const {
-    gaussian_ker ker(1);
+    gaussian_ker ker;
     return mirror_density(x, ker);
   }
 
