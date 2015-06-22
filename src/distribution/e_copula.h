@@ -74,7 +74,8 @@ public:
       acc += ker((gu - gU) / h, (gv - gV) / h);
     }
 
-    return acc / (dist_grid_size() * h * h * gu * gv);
+    return acc /
+           (dist_grid_size() * h * h * gauss.density(gu) * gauss.density(gv));
   }
 
   virtual num_t density(const vec_t& x) const {
