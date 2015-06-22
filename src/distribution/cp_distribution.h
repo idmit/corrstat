@@ -39,6 +39,9 @@ public:
   }
 
   virtual num_t margin_cdf(size_t coordinate, num_t x) const {
+    // TODO: Implement if needed.
+    // These margins are not affected by copula. It's wrong.
+    assert(false);
     return _margins[coordinate]->cdf(x);
   }
 
