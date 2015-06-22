@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
 
     dist.borrow()->set_sample_as_grid();
 
-    e_cop.set_grid(cst::vec_t(2, 0), cst::vec_t(2, 1), 30);
+    e_cop.set_grid(cst::vec_t(2, 0.01), cst::vec_t(2, 0.99), 30);
 
     result<void *> res = e_cop.export_density(argv[2]);
     //    result<void *> res = (*dist).export_cdf(argv[2]);
