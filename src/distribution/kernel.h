@@ -42,9 +42,11 @@ public:
   }
 
   virtual num_t operator()(vec_t x) const {
-    assert(x.size() == 2);
-    num_t _x = x[0], _y = x[1];
-    return std::exp(-(_x * _x + _y * _y) / 2) / (2 * PI);
+    num_t acc = 0;
+    for (size_t i = 0; i < x.size(); ++i) {
+      acc += x[i] * x[i];
+    }
+    return std::exp(-acc / 2) / std::sqrt(std::pow(2 * PI, x.size()));
   }
 };
 }
