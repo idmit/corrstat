@@ -58,20 +58,30 @@ public:
                                     num_t h = 0.2) const {
     num_t acc = 0;
     normal_distribution_t gauss(0, 1);
-    num_t gu = gauss.inv_cdf(x[0]), gv = gauss.inv_cdf(x[1]);
+    vec_t gu(_dim);
+
+    for (size_t i = 0; i < _dim; ++i) {
+      gu[i] = gauss.inv_cdf(x[i]);
+    }
+
+    vec_t ker_args(_dim);
 
     for (size_t i = 0; i < dist_grid_size(); ++i) {
 
-      num_t U = _mv_dist->margin_cdf_on_grid(0, i);
-      num_t V = _mv_dist->margin_cdf_on_grid(1, i);
+      for (size_t k = 0; k < _dim; ++k) {
+        ker_args[k] =
+            (gu[k] - gauss.inv_cdf(_mv_dist->margin_cdf_on_grid(k, i))) / h;
+      }
 
-      num_t gU = gauss.inv_cdf(U), gV = gauss.inv_cdf(V);
-
-      acc += ker((gu - gU) / h, (gv - gV) / h);
+      acc += ker(ker_args);
     }
 
-    return acc /
-           (dist_grid_size() * h * h * gauss.density(gu) * gauss.density(gv));
+    num_t density = 1;
+    for (size_t i = 0; i < _dim; ++i) {
+      density *= gauss.density(gu[i]);
+    }
+
+    return acc / (dist_grid_size() * h * h * density);
   }
 
   virtual num_t density(const vec_t& x) const {
