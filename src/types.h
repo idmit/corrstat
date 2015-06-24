@@ -10,6 +10,7 @@
 #define corrstat_types_h
 
 #include <cassert>
+#include <vector>
 
 #include "result.h"
 
@@ -22,7 +23,7 @@ typedef num_t (*mv_fn)(vec_t);
 
 const num_t PI = 3.14159265359;
 
-num_t cross(const vec_t &x, const vec_t &y) {
+inline num_t cross(const vec_t &x, const vec_t &y) {
   assert(x.size() == y.size());
   num_t c = 0;
   for (size_t i = 0; i < x.size(); ++i) {
@@ -31,7 +32,7 @@ num_t cross(const vec_t &x, const vec_t &y) {
   return c;
 }
 
-bool less(const vec_t &lhs, const vec_t &rhs) {
+inline bool less(const vec_t &lhs, const vec_t &rhs) {
   assert(lhs.size() == rhs.size());
   for (size_t i = 0; i < lhs.size(); ++i) {
     if (lhs[i] > rhs[i]) {
