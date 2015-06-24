@@ -28,9 +28,10 @@ using namespace cst;
 int main(int argc, char **argv) {
   result<hope_t> hope = cst::hope_t::make(argv[1], "", "");
 
+  size_t params[] = { 0, 0, 4, 0 };
   if (hope) {
     result<void *> wrote =
-        hope.borrow()->export_marginals(argv[2], argv[3], argv[4]);
+        hope.borrow()->export_joint(argv[2], argv[3], params, argv[4]);
   } else {
     printf("%s\n", hope.err().what().c_str());
   }

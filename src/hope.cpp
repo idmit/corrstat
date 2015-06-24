@@ -8,7 +8,6 @@
 
 #include <algorithm>
 #include <cerrno>
-#include <cmath>
 #include <cstring>
 #include <fstream>
 #include <sstream>
@@ -147,6 +146,8 @@ result<void *> hope_t::export_marginals(
     return loaded;
   }
 
+  const char *trace_lengths[] = { "100", "250", "1000" };
+
   for (size_t i = 0; i < params; ++i) {
     for (size_t j = 0; j < unique_model_vals[i].size(); ++j) {
       std::vector<vec_t> margin(3);
@@ -161,7 +162,7 @@ result<void *> hope_t::export_marginals(
       for (size_t k = 0; k < 3; ++k) {
         std::ofstream stream;
         stream.open((path_to_write + '_' + to_string(i) + '_' + to_string(j) +
-                     '_' + to_string(std::pow(10, k + 1)))
+                     '_' + trace_lengths[k])
                         .c_str(),
                     std::ofstream::trunc);
 
@@ -181,19 +182,80 @@ result<void *> hope_t::export_marginals(
                  "gnuplot -e "
                  "\"filename='/Users/ivandmi/Documents/dev/corrstat/corrstat/"
                  "data/shift_marginals/margin_") +
-             to_string(i) + "_" + to_string(j) + "_" +
-             to_string(std::pow(10, k + 1)) +
+             to_string(i) + "_" + to_string(j) + "_" + trace_lengths[k] +
              "'\" -e "
              "\"plotname='/Users/ivandmi/Documents/dev/corrstat/corrstat/"
              "data/shift_marginals/plot_" +
-             to_string(i) + "_" + to_string(j) + "_" +
-             to_string(std::pow(10, k + 1)) +
+             to_string(i) + "_" + to_string(j) + "_" + trace_lengths[k] +
              ".png'\" "
              "/Users/ivandmi/Documents/dev/corrstat/corrstat/data/"
              "shift_marginals/run.gp")
                 .c_str());
       }
     }
+  }
+
+  return result<void *>::ok(NULL);
+}
+
+result<void *> hope_t::export_joint(const std::string &path_to_shifts,
+                                    const std::string &base_path_to_read,
+                                    const size_t params_and_vals[4],
+                                    const std::string &path_to_write) const {
+  size_t params = _model_vals[0].size();
+  std::vector<vec_t> unique_model_vals(_model_vals[0].size());
+
+  for (size_t i = 0; i < params; ++i) {
+    std::vector<vec_t> tmp_unique_values;
+
+    result<void *> loaded = load_csv(base_path_to_read + to_string(i) + ".csv",
+                                     tmp_unique_values, 0, true);
+    if (!loaded) {
+      return loaded;
+    }
+    unique_model_vals[i] = tmp_unique_values[0];
+  }
+  std::vector<vec_t> shifts;
+
+  result<void *> loaded = load_csv(path_to_shifts, shifts, 6);
+  if (!loaded) {
+    return loaded;
+  }
+
+  const char *trace_lengths[] = { "100", "250", "1000" };
+  std::vector<std::vector<vec_t> > joint(3, std::vector<vec_t>(2));
+
+  for (size_t k = 0; k < shifts.size(); ++k) {
+    if (_model_vals[k / 300][params_and_vals[0]] ==
+            unique_model_vals[params_and_vals[0]][params_and_vals[1]] &&
+        _model_vals[k / 300][params_and_vals[2]] ==
+            unique_model_vals[params_and_vals[2]][params_and_vals[3]]) {
+      if (shifts[k].size() > 0) {
+        joint[(k % 300) / 100][0].push_back(shifts[k][params_and_vals[0]]);
+        joint[(k % 300) / 100][1].push_back(shifts[k][params_and_vals[2]]);
+      }
+    }
+  }
+
+  for (size_t k = 0; k < 3; ++k) {
+    std::ofstream stream;
+    stream.open((path_to_write + '_' + to_string(params_and_vals[0]) +
+                 to_string(params_and_vals[1]) + '_' +
+                 to_string(params_and_vals[2]) + to_string(params_and_vals[3]) +
+                 '_' + trace_lengths[k])
+                    .c_str(),
+                std::ofstream::trunc);
+
+    if (stream.fail()) {
+      std::string err_text =
+          path_to_write + std::string(": ") + strerror(errno);
+      return result<void *>::error(err_text, error_t::io_error);
+    }
+
+    for (size_t n = 0; n < joint[k][0].size(); ++n) {
+      stream << joint[k][0][n] << ' ' << joint[k][1][n] << '\n';
+    }
+    stream.close();
   }
 
   return result<void *>::ok(NULL);

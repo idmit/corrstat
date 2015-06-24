@@ -29,6 +29,10 @@ public:
   result<void *> export_marginals(const std::string &path_to_shifts,
                                   const std::string &base_path_to_read,
                                   const std::string &path_to_write) const;
+  result<void *> export_joint(const std::string &path_to_shifts,
+                              const std::string &base_path_to_read,
+                              const size_t params_and_vals[4],
+                              const std::string &path_to_write) const;
 
 private:
   static result<void *> load_csv(const std::string &filename,
