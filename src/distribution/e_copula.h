@@ -85,8 +85,8 @@ public:
   }
 
   virtual num_t density(const vec_t& x) const {
-    mv_gaussian_ker ker;
-    return transformed_density(x, ker);
+    gaussian_ker ker;
+    return mirror_density(x, ker);
   }
 
   size_t dist_grid_size() const { return _mv_dist->grid().size(); }
