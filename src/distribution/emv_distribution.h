@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <fstream>
 
-#include "mv_distribution_i.h"
+#include "mv_distribution.h"
 
 namespace cst {
 
@@ -129,6 +129,8 @@ public:
   }
 
   size_t sample_size() const { return _sample_size; }
+
+  vec_t sample_at(size_t i) const { return _mv_sample[i]; }
 
   virtual void set_sample_as_grid() const { _grid = _mv_sample; }
 

@@ -21,6 +21,13 @@ public:
     assert(-1 <= theta && theta != 0 && theta < INFINITY);
   }
 
+  virtual num_t density(const vec_t& x) const {
+    num_t u = x[0], v = x[1];
+    return (1 + _theta) * std::pow(u * v, -(_theta + 1)) *
+           std::pow((std::pow(u, -_theta) + std::pow(v, -_theta) - 1),
+                    -(2 * _theta + 1) / _theta);
+  }
+
   virtual num_t gen(num_t x) const {
     return (std::pow(x, -_theta) - 1) / _theta;
   }

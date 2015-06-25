@@ -33,6 +33,11 @@ public:
                               const std::string &base_path_to_read,
                               const size_t params_and_vals[4],
                               const std::string &path_to_write) const;
+  result<void *> export_estimations(const std::string &path_to_margins,
+                                    const std::string &path_to_joints,
+                                    const std::string &base_path_to_read,
+                                    const size_t params_and_vals[4],
+                                    const std::string &path_to_write) const;
 
 private:
   static result<void *> load_csv(const std::string &filename,

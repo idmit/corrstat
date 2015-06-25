@@ -11,6 +11,7 @@
 
 #include <cerrno>
 #include <ctime>
+#include <cstring>
 #include <fstream>
 
 #include "distribution_i.h"
@@ -54,6 +55,23 @@ public:
     return result<void*>::ok(NULL);
   }
 
+  result<void*> export_density(std::string path_to_data) {
+    std::ofstream stream;
+    stream.open(path_to_data.c_str(), std::ofstream::trunc);
+
+    if (stream.fail()) {
+      std::string err_text = path_to_data + std::string(": ") + strerror(errno);
+      return result<void*>::error(err_text, error_t::io_error);
+    }
+
+    vec_t sample;
+    for (size_t i = 0; i < _grid.size(); ++i) {
+      stream << _grid[i][0] << ' ' << density(_grid[i][0]) << '\n';
+    }
+    stream.close();
+    return result<void*>::ok(NULL);
+  }
+
   virtual vec_t samples(size_t size) const {
     vec_t samples(size);
 
@@ -66,9 +84,6 @@ public:
 protected:
   static boost::random::mt19937 _eng;
 };
-
-boost::random::mt19937 distribution_t::_eng =
-    boost::random::mt19937((unsigned)std::time(NULL));
 }
 
 #endif /* defined(__corrstat__distribution__) */

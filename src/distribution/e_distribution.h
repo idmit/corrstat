@@ -13,7 +13,8 @@
 #include <cmath>
 #include <fstream>
 
-#include "distribution_i.h"
+#include "distribution.h"
+#include "kernel.h"
 #include "../result.h"
 
 namespace cst {
@@ -28,10 +29,15 @@ public:
 
   virtual num_t prob(num_t x) const { return 0; }
 
-  virtual num_t density(num_t x) const {
-    // TODO: Implement if needed.
-    assert(false);
-    return 0;
+  virtual num_t density(num_t x) const { return density(x, 0.4); }
+
+  virtual num_t density(num_t x, num_t h) const {
+    gaussian_ker ker;
+    num_t acc = 0;
+    for (size_t i = 0; i < _sample_size; ++i) {
+      acc += ker((x - _sample[i]) / h);
+    }
+    return acc / (_sample_size * h);
   }
 
   virtual num_t cdf(num_t x) const {
