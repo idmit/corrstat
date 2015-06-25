@@ -26,23 +26,14 @@
 using namespace cst;
 
 int main(int argc, char **argv) {
-  result<cst::emv_distribution_t> dist = cst::emv_distribution_t::read(argv[1]);
-  if (dist) {
-    cst::e_copula_t e_cop(dist.borrow());
+  result<hope_t> hope = cst::hope_t::make(argv[1], "", "");
 
-    dist.borrow()->set_sample_as_grid();
-
-    e_cop.set_grid(cst::vec_t(2, 0.01), cst::vec_t(2, 0.99), 30);
-
-    result<void *> res = e_cop.export_density(argv[2]);
-    //    result<void *> res = (*dist).export_cdf(argv[2]);
-    if (!res.is_ok()) {
-      printf("%s\n", res.err().what().c_str());
-    } else {
-      printf("%s\n", "Finished.");
-    }
+  size_t params[] = { 0, 1, 4, 0 };
+  if (hope) {
+    result<void *> wrote =
+        hope.borrow()->export_joint(argv[2], argv[3], params, argv[4]);
   } else {
-    printf("%s\n", dist.err().what().c_str());
+    printf("%s\n", hope.err().what().c_str());
   }
 
   return 0;

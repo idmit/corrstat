@@ -256,6 +256,24 @@ result<void *> hope_t::export_joint(const std::string &path_to_shifts,
       stream << joint[k][0][n] << ' ' << joint[k][1][n] << '\n';
     }
     stream.close();
+
+    system((std::string(
+                "gnuplot -e "
+                "\"filename='/Users/ivandmi/Documents/dev/corrstat/corrstat/"
+                "data/shift_joints/joint_") +
+            to_string(params_and_vals[0]) + to_string(params_and_vals[1]) +
+            "_" + to_string(params_and_vals[2]) +
+            to_string(params_and_vals[3]) + "_" + trace_lengths[k] +
+            "'\" -e "
+            "\"plotname='/Users/ivandmi/Documents/dev/corrstat/corrstat/"
+            "data/shift_joints/scatter_" +
+            to_string(params_and_vals[0]) + to_string(params_and_vals[1]) +
+            "_" + to_string(params_and_vals[2]) +
+            to_string(params_and_vals[3]) + "_" + trace_lengths[k] +
+            ".png'\" "
+            "/Users/ivandmi/Documents/dev/corrstat/corrstat/data/"
+            "shift_joints/scatter.gp")
+               .c_str());
   }
 
   return result<void *>::ok(NULL);
