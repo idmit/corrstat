@@ -34,7 +34,7 @@ public:
     num_t rho2 = _rho * _rho;
     return std::exp((2 * nu * nv * _rho - rho2 * (nu * nu - nv * nv)) /
                     (2 * (1 - rho2))) /
-           (2 * PI * (1 - rho2));
+           (2 * PI * std::sqrt(1 - rho2));
   }
 
 private:

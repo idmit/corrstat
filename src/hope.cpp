@@ -8,6 +8,7 @@
 
 #include <algorithm>
 #include <cerrno>
+#include <cmath>
 #include <cstring>
 #include <fstream>
 #include <sstream>
@@ -49,11 +50,13 @@ cst::num_t max_func(const vec_t &x, vec_t &grad, void *data) {
     cop_args[0] = e_dists[0]->cdf(element[0]);
     cop_args[1] = e_dists[1]->cdf(element[1]);
     num_t density = g_cop.density(cop_args);
-    num_t d1 = e_dists[0]->density(element[0]);
-    num_t d2 = e_dists[1]->density(element[1]);
-    //    printf("%lf : %lf : %lf : %lf\n", x[0], density, d1, d2);
-    acc += std::log(density) + std::log(d1) + std::log(d2);
+    if (std::isnan(density) || std::isinf(density)) {
+      continue;
+    }
+    printf("%lf : %lf : %lf\n", x[0], density, std::log(density));
+    acc += std::log(density);
   }
+  printf("SUMM : %lf\n", acc);
 
   return acc;
 }
@@ -380,37 +383,37 @@ result<void *> hope_t::export_estimations(
 
     max_data mdata = { joint, margins };
 
-    nlopt::opt opt(nlopt::LN_COBYLA, 1);
-
-    std::vector<double> lb(1);
-    lb[0] = -1;
-    opt.set_lower_bounds(lb);
-    std::vector<double> ub(1);
-    ub[0] = 1;
-    opt.set_upper_bounds(ub);
-
-    opt.set_max_objective(max_func, &mdata);
-
-    opt.set_xtol_rel(1e-4);
-
-    std::vector<double> x(1);
-    x[0] = 0;
-    double maxf;
-    nlopt::result result = opt.optimize(x, maxf);
-
-    if (result < 0) {
-      printf("nlopt failed!\n");
-    } else {
-      printf("found maximum at f(%g) = %0.10g\n", x[0], maxf);
-    }
-
-    //    size_t m = 50;
-    //    num_t d = 2.0 / 50;
-    //    vec_t grad;
-    //    for (size_t n = 1; n < m; ++n) {
-    //      vec_t arg(1, -1 + d * n);
-    //      stream << -1 + d *n << ' ' << max_func(arg, grad, &mdata) << '\n';
+    //    nlopt::opt opt(nlopt::LN_COBYLA, 1);
+    //
+    //    std::vector<double> lb(1);
+    //    lb[0] = -1;
+    //    opt.set_lower_bounds(lb);
+    //    std::vector<double> ub(1);
+    //    ub[0] = 1;
+    //    opt.set_upper_bounds(ub);
+    //
+    //    opt.set_max_objective(max_func, &mdata);
+    //
+    //    opt.set_xtol_rel(1e-4);
+    //
+    //    std::vector<double> x(1);
+    //    x[0] = 0;
+    //    double maxf;
+    //    nlopt::result result = opt.optimize(x, maxf);
+    //
+    //    if (result < 0) {
+    //      printf("nlopt failed!\n");
+    //    } else {
+    //      printf("found maximum at f(%g) = %0.10g\n", x[0], maxf);
     //    }
+
+    size_t m = 50;
+    num_t d = 2.0 / 50;
+    vec_t grad;
+    for (size_t n = 1; n < m; ++n) {
+      vec_t arg(1, -1 + d * n);
+      stream << -1 + d *n << ' ' << max_func(arg, grad, &mdata) << '\n';
+    }
 
     stream.close();
   }
