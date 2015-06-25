@@ -1,5 +1,5 @@
 set terminal png size 1024, 1024 enhanced font 'Monaco, 10'
-set output 'plot_01_41_1000.png'
+set output 'g-cop_41.png'
 load "palettes/dark2.pal"
 
 if (!exists("filename")) filename='def.dat'
