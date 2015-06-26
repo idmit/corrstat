@@ -1,0 +1,4338 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%Title: data/hit_joints/plot_11_40_1000.tex
+%%Creator: gnuplot 5.0 patchlevel 0
+%%CreationDate: Fri Jun 26 20:23:59 2015
+%%DocumentFonts: 
+%%BoundingBox: 50 50 503 276
+%%EndComments
+%%BeginProlog
+/gnudict 256 dict def
+gnudict begin
+%
+% The following true/false flags may be edited by hand if desired.
+% The unit line width and grayscale image gamma correction may also be changed.
+%
+/Color true def
+/Blacktext false def
+/Solid false def
+/Dashlength 1 def
+/Landscape false def
+/Level1 false def
+/Level3 false def
+/Rounded false def
+/ClipToBoundingBox false def
+/SuppressPDFMark false def
+/TransparentPatterns false def
+/gnulinewidth 5.000 def
+/userlinewidth gnulinewidth def
+/Gamma 1.0 def
+/BackgroundColor {-1.000 -1.000 -1.000} def
+%
+/vshift -73 def
+/dl1 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul sub dup 0 le { pop 0.01 } if } if
+} def
+/dl2 {
+  10.0 Dashlength userlinewidth gnulinewidth div mul mul mul
+  Rounded { currentlinewidth 0.75 mul add } if
+} def
+/hpt_ 31.5 def
+/vpt_ 31.5 def
+/hpt hpt_ def
+/vpt vpt_ def
+/doclip {
+  ClipToBoundingBox {
+    newpath 50 50 moveto 503 50 lineto 503 276 lineto 50 276 lineto closepath
+    clip
+  } if
+} def
+%
+% Gnuplot Prolog Version 5.0 (Dec 2014)
+%
+%/SuppressPDFMark true def
+%
+/M {moveto} bind def
+/L {lineto} bind def
+/R {rmoveto} bind def
+/V {rlineto} bind def
+/N {newpath moveto} bind def
+/Z {closepath} bind def
+/C {setrgbcolor} bind def
+/f {rlineto fill} bind def
+/g {setgray} bind def
+/Gshow {show} def   % May be redefined later in the file to support UTF-8
+/vpt2 vpt 2 mul def
+/hpt2 hpt 2 mul def
+/Lshow {currentpoint stroke M 0 vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Rshow {currentpoint stroke M dup stringwidth pop neg vshift R
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/Cshow {currentpoint stroke M dup stringwidth pop -2 div vshift R 
+	Blacktext {gsave 0 setgray textshow grestore} {textshow} ifelse} def
+/UP {dup vpt_ mul /vpt exch def hpt_ mul /hpt exch def
+  /hpt2 hpt 2 mul def /vpt2 vpt 2 mul def} def
+/DL {Color {setrgbcolor Solid {pop []} if 0 setdash}
+ {pop pop pop 0 setgray Solid {pop []} if 0 setdash} ifelse} def
+/BL {stroke userlinewidth 2 mul setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/AL {stroke userlinewidth 2 div setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+/UL {dup gnulinewidth mul /userlinewidth exch def
+	dup 1 lt {pop 1} if 10 mul /udl exch def} def
+/PL {stroke userlinewidth setlinewidth
+	Rounded {1 setlinejoin 1 setlinecap} if} def
+3.8 setmiterlimit
+% Classic Line colors (version 5.0)
+/LCw {1 1 1} def
+/LCb {0 0 0} def
+/LCa {0 0 0} def
+/LC0 {1 0 0} def
+/LC1 {0 1 0} def
+/LC2 {0 0 1} def
+/LC3 {1 0 1} def
+/LC4 {0 1 1} def
+/LC5 {1 1 0} def
+/LC6 {0 0 0} def
+/LC7 {1 0.3 0} def
+/LC8 {0.5 0.5 0.5} def
+% Default dash patterns (version 5.0)
+/LTw {PL [] 1 setgray} def
+/LTb {BL [] LCb DL} def
+/LTa {AL [1 udl mul 2 udl mul] 0 setdash LCa setrgbcolor} def
+/LT0 {PL [] LC0 DL} def
+/LT1 {PL [2 dl1 3 dl2] LC1 DL} def
+/LT2 {PL [1 dl1 1.5 dl2] LC2 DL} def
+/LT3 {PL [6 dl1 2 dl2 1 dl1 2 dl2] LC3 DL} def
+/LT4 {PL [1 dl1 2 dl2 6 dl1 2 dl2 1 dl1 2 dl2] LC4 DL} def
+/LT5 {PL [4 dl1 2 dl2] LC5 DL} def
+/LT6 {PL [1.5 dl1 1.5 dl2 1.5 dl1 1.5 dl2 1.5 dl1 6 dl2] LC6 DL} def
+/LT7 {PL [3 dl1 3 dl2 1 dl1 3 dl2] LC7 DL} def
+/LT8 {PL [2 dl1 2 dl2 2 dl1 6 dl2] LC8 DL} def
+/SL {[] 0 setdash} def
+/Pnt {stroke [] 0 setdash gsave 1 setlinecap M 0 0 V stroke grestore} def
+/Dia {stroke [] 0 setdash 2 copy vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke
+  Pnt} def
+/Pls {stroke [] 0 setdash vpt sub M 0 vpt2 V
+  currentpoint stroke M
+  hpt neg vpt neg R hpt2 0 V stroke
+ } def
+/Box {stroke [] 0 setdash 2 copy exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke
+  Pnt} def
+/Crs {stroke [] 0 setdash exch hpt sub exch vpt add M
+  hpt2 vpt2 neg V currentpoint stroke M
+  hpt2 neg 0 R hpt2 vpt2 V stroke} def
+/TriU {stroke [] 0 setdash 2 copy vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke
+  Pnt} def
+/Star {2 copy Pls Crs} def
+/BoxF {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath fill} def
+/TriUF {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath fill} def
+/TriD {stroke [] 0 setdash 2 copy vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke
+  Pnt} def
+/TriDF {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath fill} def
+/DiaF {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath fill} def
+/Pent {stroke [] 0 setdash 2 copy gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore Pnt} def
+/PentF {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath fill grestore} def
+/Circle {stroke [] 0 setdash 2 copy
+  hpt 0 360 arc stroke Pnt} def
+/CircleF {stroke [] 0 setdash hpt 0 360 arc fill} def
+/C0 {BL [] 0 setdash 2 copy moveto vpt 90 450 arc} bind def
+/C1 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C2 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C3 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C4 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C5 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc
+	2 copy moveto
+	2 copy vpt 180 270 arc closepath fill
+	vpt 0 360 arc} bind def
+/C6 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C7 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 270 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C8 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C9 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 270 450 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C10 {BL [] 0 setdash 2 copy 2 copy moveto vpt 270 360 arc closepath fill
+	2 copy moveto
+	2 copy vpt 90 180 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C11 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 180 arc closepath fill
+	2 copy moveto
+	2 copy vpt 270 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C12 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C13 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 0 90 arc closepath fill
+	2 copy moveto
+	2 copy vpt 180 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/C14 {BL [] 0 setdash 2 copy moveto
+	2 copy vpt 90 360 arc closepath fill
+	vpt 0 360 arc} bind def
+/C15 {BL [] 0 setdash 2 copy vpt 0 360 arc closepath fill
+	vpt 0 360 arc closepath} bind def
+/Rec {newpath 4 2 roll moveto 1 index 0 rlineto 0 exch rlineto
+	neg 0 rlineto closepath} bind def
+/Square {dup Rec} bind def
+/Bsquare {vpt sub exch vpt sub exch vpt2 Square} bind def
+/S0 {BL [] 0 setdash 2 copy moveto 0 vpt rlineto BL Bsquare} bind def
+/S1 {BL [] 0 setdash 2 copy vpt Square fill Bsquare} bind def
+/S2 {BL [] 0 setdash 2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S3 {BL [] 0 setdash 2 copy exch vpt sub exch vpt2 vpt Rec fill Bsquare} bind def
+/S4 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S5 {BL [] 0 setdash 2 copy 2 copy vpt Square fill
+	exch vpt sub exch vpt sub vpt Square fill Bsquare} bind def
+/S6 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S7 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt vpt2 Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S8 {BL [] 0 setdash 2 copy vpt sub vpt Square fill Bsquare} bind def
+/S9 {BL [] 0 setdash 2 copy vpt sub vpt vpt2 Rec fill Bsquare} bind def
+/S10 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt Square fill
+	Bsquare} bind def
+/S11 {BL [] 0 setdash 2 copy vpt sub vpt Square fill 2 copy exch vpt sub exch vpt2 vpt Rec fill
+	Bsquare} bind def
+/S12 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill Bsquare} bind def
+/S13 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy vpt Square fill Bsquare} bind def
+/S14 {BL [] 0 setdash 2 copy exch vpt sub exch vpt sub vpt2 vpt Rec fill
+	2 copy exch vpt sub exch vpt Square fill Bsquare} bind def
+/S15 {BL [] 0 setdash 2 copy Bsquare fill Bsquare} bind def
+/D0 {gsave translate 45 rotate 0 0 S0 stroke grestore} bind def
+/D1 {gsave translate 45 rotate 0 0 S1 stroke grestore} bind def
+/D2 {gsave translate 45 rotate 0 0 S2 stroke grestore} bind def
+/D3 {gsave translate 45 rotate 0 0 S3 stroke grestore} bind def
+/D4 {gsave translate 45 rotate 0 0 S4 stroke grestore} bind def
+/D5 {gsave translate 45 rotate 0 0 S5 stroke grestore} bind def
+/D6 {gsave translate 45 rotate 0 0 S6 stroke grestore} bind def
+/D7 {gsave translate 45 rotate 0 0 S7 stroke grestore} bind def
+/D8 {gsave translate 45 rotate 0 0 S8 stroke grestore} bind def
+/D9 {gsave translate 45 rotate 0 0 S9 stroke grestore} bind def
+/D10 {gsave translate 45 rotate 0 0 S10 stroke grestore} bind def
+/D11 {gsave translate 45 rotate 0 0 S11 stroke grestore} bind def
+/D12 {gsave translate 45 rotate 0 0 S12 stroke grestore} bind def
+/D13 {gsave translate 45 rotate 0 0 S13 stroke grestore} bind def
+/D14 {gsave translate 45 rotate 0 0 S14 stroke grestore} bind def
+/D15 {gsave translate 45 rotate 0 0 S15 stroke grestore} bind def
+/DiaE {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V closepath stroke} def
+/BoxE {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V closepath stroke} def
+/TriUE {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V closepath stroke} def
+/TriDE {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V closepath stroke} def
+/PentE {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  closepath stroke grestore} def
+/CircE {stroke [] 0 setdash 
+  hpt 0 360 arc stroke} def
+/Opaque {gsave closepath 1 setgray fill grestore 0 setgray closepath} def
+/DiaW {stroke [] 0 setdash vpt add M
+  hpt neg vpt neg V hpt vpt neg V
+  hpt vpt V hpt neg vpt V Opaque stroke} def
+/BoxW {stroke [] 0 setdash exch hpt sub exch vpt add M
+  0 vpt2 neg V hpt2 0 V 0 vpt2 V
+  hpt2 neg 0 V Opaque stroke} def
+/TriUW {stroke [] 0 setdash vpt 1.12 mul add M
+  hpt neg vpt -1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt 1.62 mul V Opaque stroke} def
+/TriDW {stroke [] 0 setdash vpt 1.12 mul sub M
+  hpt neg vpt 1.62 mul V
+  hpt 2 mul 0 V
+  hpt neg vpt -1.62 mul V Opaque stroke} def
+/PentW {stroke [] 0 setdash gsave
+  translate 0 hpt M 4 {72 rotate 0 hpt L} repeat
+  Opaque stroke grestore} def
+/CircW {stroke [] 0 setdash 
+  hpt 0 360 arc Opaque stroke} def
+/BoxFill {gsave Rec 1 setgray fill grestore} def
+/Density {
+  /Fillden exch def
+  currentrgbcolor
+  /ColB exch def /ColG exch def /ColR exch def
+  /ColR ColR Fillden mul Fillden sub 1 add def
+  /ColG ColG Fillden mul Fillden sub 1 add def
+  /ColB ColB Fillden mul Fillden sub 1 add def
+  ColR ColG ColB setrgbcolor} def
+/BoxColFill {gsave Rec PolyFill} def
+/PolyFill {gsave Density fill grestore grestore} def
+/h {rlineto rlineto rlineto gsave closepath fill grestore} bind def
+%
+% PostScript Level 1 Pattern Fill routine for rectangles
+% Usage: x y w h s a XX PatternFill
+%	x,y = lower left corner of box to be filled
+%	w,h = width and height of box
+%	  a = angle in degrees between lines and x-axis
+%	 XX = 0/1 for no/yes cross-hatch
+%
+/PatternFill {gsave /PFa [ 9 2 roll ] def
+  PFa 0 get PFa 2 get 2 div add PFa 1 get PFa 3 get 2 div add translate
+  PFa 2 get -2 div PFa 3 get -2 div PFa 2 get PFa 3 get Rec
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+  clip
+  currentlinewidth 0.5 mul setlinewidth
+  /PFs PFa 2 get dup mul PFa 3 get dup mul add sqrt def
+  0 0 M PFa 5 get rotate PFs -2 div dup translate
+  0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 M 0 PFs V} for
+  0 PFa 6 get ne {
+	0 1 PFs PFa 4 get div 1 add floor cvi
+	{PFa 4 get mul 0 2 1 roll M PFs 0 V} for
+ } if
+  stroke grestore} def
+%
+/languagelevel where
+ {pop languagelevel} {1} ifelse
+dup 2 lt
+	{/InterpretLevel1 true def
+	 /InterpretLevel3 false def}
+	{/InterpretLevel1 Level1 def
+	 2 gt
+	    {/InterpretLevel3 Level3 def}
+	    {/InterpretLevel3 false def}
+	 ifelse }
+ ifelse
+%
+% PostScript level 2 pattern fill definitions
+%
+/Level2PatternFill {
+/Tile8x8 {/PaintType 2 /PatternType 1 /TilingType 1 /BBox [0 0 8 8] /XStep 8 /YStep 8}
+	bind def
+/KeepColor {currentrgbcolor [/Pattern /DeviceRGB] setcolorspace} bind def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke} 
+>> matrix makepattern
+/Pat1 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 8 8 L 0 8 M 8 0 L stroke
+	0 4 M 4 8 L 8 4 L 4 0 L 0 4 L stroke}
+>> matrix makepattern
+/Pat2 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 0 M 0 8 L
+	8 8 L 8 0 L 0 0 L fill}
+>> matrix makepattern
+/Pat3 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 8 M 8 -4 L
+	0 12 M 12 0 L stroke}
+>> matrix makepattern
+/Pat4 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -4 0 M 8 12 L
+	0 -4 M 12 8 L stroke}
+>> matrix makepattern
+/Pat5 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 8 M 4 -4 L
+	0 12 M 8 -4 L 4 12 M 10 0 L stroke}
+>> matrix makepattern
+/Pat6 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop -2 0 M 4 12 L
+	0 -4 M 8 12 L 4 -4 M 10 8 L stroke}
+>> matrix makepattern
+/Pat7 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 8 -2 M -4 4 L
+	12 0 M -4 8 L 12 4 M 0 10 L stroke}
+>> matrix makepattern
+/Pat8 exch def
+<< Tile8x8
+ /PaintProc {0.5 setlinewidth pop 0 -2 M 12 4 L
+	-4 0 M 12 8 L -4 4 M 8 10 L stroke}
+>> matrix makepattern
+/Pat9 exch def
+/Pattern1 {PatternBgnd KeepColor Pat1 setpattern} bind def
+/Pattern2 {PatternBgnd KeepColor Pat2 setpattern} bind def
+/Pattern3 {PatternBgnd KeepColor Pat3 setpattern} bind def
+/Pattern4 {PatternBgnd KeepColor Landscape {Pat5} {Pat4} ifelse setpattern} bind def
+/Pattern5 {PatternBgnd KeepColor Landscape {Pat4} {Pat5} ifelse setpattern} bind def
+/Pattern6 {PatternBgnd KeepColor Landscape {Pat9} {Pat6} ifelse setpattern} bind def
+/Pattern7 {PatternBgnd KeepColor Landscape {Pat8} {Pat7} ifelse setpattern} bind def
+} def
+%
+%
+%End of PostScript Level 2 code
+%
+/PatternBgnd {
+  TransparentPatterns {} {gsave 1 setgray fill grestore} ifelse
+} def
+%
+% Substitute for Level 2 pattern fill codes with
+% grayscale if Level 2 support is not selected.
+%
+/Level1PatternFill {
+/Pattern1 {0.250 Density} bind def
+/Pattern2 {0.500 Density} bind def
+/Pattern3 {0.750 Density} bind def
+/Pattern4 {0.125 Density} bind def
+/Pattern5 {0.375 Density} bind def
+/Pattern6 {0.625 Density} bind def
+/Pattern7 {0.875 Density} bind def
+} def
+%
+% Now test for support of Level 2 code
+%
+Level1 {Level1PatternFill} {Level2PatternFill} ifelse
+%
+/Symbol-Oblique /Symbol findfont [1 0 .167 1 0 0] makefont
+dup length dict begin {1 index /FID eq {pop pop} {def} ifelse} forall
+currentdict end definefont pop
+%
+Level1 SuppressPDFMark or 
+{} {
+/SDict 10 dict def
+systemdict /pdfmark known not {
+  userdict /pdfmark systemdict /cleartomark get put
+} if
+SDict begin [
+  /Title (data/hit_joints/plot_11_40_1000.tex)
+  /Subject (gnuplot plot)
+  /Creator (gnuplot 5.0 patchlevel 0)
+  /Author (ivandmi)
+%  /Producer (gnuplot)
+%  /Keywords ()
+  /CreationDate (Fri Jun 26 20:23:59 2015)
+  /DOCINFO pdfmark
+end
+} ifelse
+end
+%
+% Support for boxed text - Ethan A Merritt May 2005
+%
+/InitTextBox { userdict /TBy2 3 -1 roll put userdict /TBx2 3 -1 roll put
+           userdict /TBy1 3 -1 roll put userdict /TBx1 3 -1 roll put
+	   /Boxing true def } def
+/ExtendTextBox { Boxing
+    { gsave dup false charpath pathbbox
+      dup TBy2 gt {userdict /TBy2 3 -1 roll put} {pop} ifelse
+      dup TBx2 gt {userdict /TBx2 3 -1 roll put} {pop} ifelse
+      dup TBy1 lt {userdict /TBy1 3 -1 roll put} {pop} ifelse
+      dup TBx1 lt {userdict /TBx1 3 -1 roll put} {pop} ifelse
+      grestore } if } def
+/PopTextBox { newpath TBx1 TBxmargin sub TBy1 TBymargin sub M
+               TBx1 TBxmargin sub TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy2 TBymargin add L
+	       TBx2 TBxmargin add TBy1 TBymargin sub L closepath } def
+/DrawTextBox { PopTextBox stroke /Boxing false def} def
+/FillTextBox { gsave PopTextBox 1 1 1 setrgbcolor fill grestore /Boxing false def} def
+0 0 0 0 InitTextBox
+/TBxmargin 20 def
+/TBymargin 20 def
+/Boxing false def
+/textshow { ExtendTextBox Gshow } def
+%
+%%EndProlog
+%%Page: 1 1
+gnudict begin
+gsave
+doclip
+50 50 translate
+0.050 0.050 scale
+0 setgray
+newpath
+1.000 UL
+LTb
+LCb setrgbcolor
+LTb
+1.000 UP
+1.000 UL
+LTb
+0.58 0.00 0.83 C 1749 2675 M
+121 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2079 2717 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1958 2619 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2287 2660 M
+-208 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1628 2577 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1958 2619 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2167 2562 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2496 2612 M
+-209 48 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1838 2520 M
+120 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2167 2562 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2375 2512 M
+121 100 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2705 2644 M
+-209 -32 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1508 2479 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1838 2520 M
+-210 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2047 2463 M
+120 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2375 2512 M
+-208 50 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2047 2463 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1717 2422 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2768 2619 M
+-63 25 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2914 2561 M
+-75 30 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2584 2528 M
+121 116 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2256 2414 M
+119 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2584 2528 M
+-209 -16 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1387 2380 M
+121 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1717 2422 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2877 2527 M
+37 34 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3123 2470 M
+-209 91 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2256 2414 M
+-209 49 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1926 2366 M
+121 97 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1926 2366 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1596 2324 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2464 2435 M
+120 93 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2730 2474 M
+-146 54 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3332 2409 M
+-209 61 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3003 2367 M
+120 103 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2464 2435 M
+-208 -21 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2135 2316 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1596 2324 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1266 2283 M
+121 97 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2673 2357 M
+32 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3003 2367 M
+-64 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3541 2377 M
+-209 32 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3212 2306 M
+120 103 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2135 2316 M
+-209 50 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1805 2268 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2961 2334 M
+42 33 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3212 2306 M
+-209 61 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1805 2268 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1475 2226 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2673 2357 M
+-209 78 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2343 2330 M
+121 105 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2343 2330 M
+-208 -14 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2014 2222 M
+121 94 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3421 2269 M
+120 108 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3750 2520 M
+3541 2377 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1146 2185 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1475 2226 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2696 2348 M
+-23 9 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2552 2252 M
+121 105 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3421 2269 M
+-209 37 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3091 2210 M
+121 96 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2014 2222 M
+-209 46 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1742 2216 M
+63 52 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1684 2169 M
+57 47 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2552 2252 M
+-209 78 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2223 2278 M
+120 52 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3091 2210 M
+-93 27 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1355 2128 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1684 2169 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1939 2161 M
+75 61 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2223 2278 M
+-209 -56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3630 2377 M
+3421 2269 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3319 2188 M
+102 81 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1025 2086 M
+121 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1355 2128 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3630 2377 M
+120 143 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2431 2188 M
+121 64 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2657 2210 M
+-105 42 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3031 2159 M
+60 51 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3242 2184 M
+-151 26 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1711 2164 M
+-27 5 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1564 2071 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1564 2071 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1234 2029 M
+121 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2431 2188 M
+-208 90 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2103 2191 M
+120 87 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2103 2191 M
+-136 -43 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3509 2294 M
+3324 2187 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3509 2294 M
+121 83 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1234 2029 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 904 1988 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1647 2055 M
+-83 16 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1443 1973 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2619 2098 M
+-188 90 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2311 2098 M
+120 90 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1443 1973 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1113 1931 M
+121 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2520 1994 M
+86 67 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1982 2140 M
+121 51 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2311 2098 M
+-208 93 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3059 1998 M
+120 72 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3388 2176 M
+3179 2070 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1652 1946 M
+11 8 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 3388 2176 M
+121 118 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1113 1931 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 784 1889 M
+120 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1588 1954 M
+-145 19 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1322 1874 M
+121 99 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2520 1994 M
+-209 104 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2191 2035 M
+120 63 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1322 1874 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 993 1833 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2577 1977 M
+-57 17 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2399 1914 M
+121 80 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1660 1956 M
+-8 -10 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1531 1858 M
+121 88 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2938 1907 M
+121 91 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3268 2198 M
+3059 1998 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3268 2198 M
+120 -22 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2191 2035 M
+-209 105 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1861 2201 M
+121 -61 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 993 1833 M
+-209 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1202 1776 M
+120 98 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1510 1859 M
+-188 15 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2070 2055 M
+121 -20 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2399 1914 M
+-208 121 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1202 1776 M
+-209 57 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2541 1871 M
+-142 43 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2278 1877 M
+121 37 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1411 1747 M
+120 111 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1620 1983 M
+-89 -125 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1741 2214 M
+1577 1935 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3147 2132 M
+2938 1907 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2817 1836 M
+121 71 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1411 1747 M
+-209 29 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2487 1806 M
+36 13 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3147 2132 M
+121 66 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1741 2214 M
+120 -13 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2070 2055 M
+-209 146 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1950 2037 M
+120 18 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2278 1877 M
+-208 178 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 1620 1983 M
+1411 1747 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2487 1806 M
+-209 71 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2159 1821 M
+119 56 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2696 1832 M
+121 4 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3026 2161 M
+2817 1836 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 3026 2161 M
+121 -29 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2520 1810 M
+-33 -4 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2367 1746 M
+120 60 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1950 2037 M
+-209 177 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1620 1983 M
+121 231 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1829 1841 M
+121 196 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2159 1821 M
+-209 216 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2367 1746 M
+-208 75 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2038 1672 M
+121 149 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2576 1797 M
+120 35 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2906 2481 M
+2696 1832 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 1829 1841 M
+-209 142 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2247 1602 M
+120 144 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2510 1781 M
+-143 -35 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2038 1672 M
+-209 169 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2906 2481 M
+120 -320 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2247 1602 M
+-209 70 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 2455 1621 M
+-208 -19 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2455 1621 M
+121 176 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2785 2680 M
+2576 1797 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2664 2230 M
+2455 1621 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2785 2680 M
+121 -199 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 2785 2680 M
+2664 2230 L
+stroke
+LCb setrgbcolor
+1.000 UL
+LTb
+0.34 0.71 0.91 C 2995 4030 M
+591 0 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+2672 762 M
+1109 903 V
+2672 762 M
+753 1283 L
+582 475 V
+2446 -93 R
+-858 233 V
+753 3089 M
+0 -1806 V
+34 28 V
+350 -132 R
+34 27 V
+350 -131 R
+34 27 V
+1905 970 M
+34 28 V
+1040 848 R
+34 28 V
+2288 866 M
+34 27 V
+1041 849 R
+34 27 V
+2672 762 M
+34 27 V
+1041 849 R
+34 27 V
+2672 762 M
+-54 15 V
+808 1269 M
+-55 14 V
+2894 943 M
+-55 14 V
+1030 1449 M
+-55 15 V
+3116 1123 M
+-55 15 V
+1251 1630 M
+-54 15 V
+3337 1304 M
+-54 15 V
+276 165 R
+-55 15 V
+277 166 R
+-55 15 V
+816 1886 M
+-63 0 V
+63 282 R
+-63 0 V
+63 282 R
+-63 0 V
+63 283 R
+-63 0 V
+63 283 R
+-63 0 V
+1.000 UP
+1.000 UP
+stroke
+0.34 0.71 0.91 C 1.000 UL
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 1.000 UL
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1221 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1221 M
+-10 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8340 1245 M
+10 28 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1177 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1177 M
+-27 68 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8323 1245 M
+27 79 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1134 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1134 M
+-45 111 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8305 1245 M
+45 131 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1091 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1091 M
+-62 154 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8288 1245 M
+62 182 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1048 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1048 M
+-79 197 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8271 1245 M
+79 233 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1004 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1004 M
+-96 241 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8254 1245 M
+96 285 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 961 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 961 M
+-113 284 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8237 1245 M
+107 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8344 1568 M
+6 9 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1614 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1614 M
+-29 -46 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8321 1568 M
+8219 1245 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8219 1245 M
+8348 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1650 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1650 M
+-52 -82 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8298 1568 M
+-96 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8202 1245 M
+8323 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1686 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1686 M
+-75 -118 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8275 1568 M
+-90 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8185 1245 M
+8299 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1723 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1723 M
+-98 -155 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8252 1568 M
+-84 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8168 1245 M
+8275 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1759 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1759 M
+8229 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8229 1568 M
+-79 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8150 1245 M
+8250 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1795 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1795 M
+8206 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8206 1568 M
+-73 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8133 1245 M
+93 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1832 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1832 M
+8183 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8183 1568 M
+-67 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8116 1245 M
+86 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1868 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1868 M
+8160 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8160 1568 M
+-61 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8099 1245 M
+78 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1932 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1932 M
+-15 -40 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8335 1892 M
+8137 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8137 1568 M
+-56 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8081 1245 M
+72 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6714 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6714 1245 M
+-84 -72 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6630 1173 M
+-24 72 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6606 1245 M
+24 84 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6630 1329 M
+84 -84 V
+1636 807 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 2052 M
+-57 -160 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8293 1892 M
+8114 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8114 1568 M
+-50 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8064 1245 M
+65 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6848 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6848 1245 M
+6630 1058 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6630 1058 M
+-63 187 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6567 1245 M
+63 221 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6630 1466 M
+218 -221 V
+1502 927 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 2172 M
+8250 1892 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8250 1892 M
+8091 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8091 1568 M
+-44 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8047 1245 M
+57 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6981 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6981 1245 M
+-7 -12 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6974 1233 M
+6630 942 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6630 942 M
+-102 303 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6528 1245 M
+89 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6617 1568 M
+13 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6630 1592 M
+46 -24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6676 1568 M
+298 -310 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6974 1258 M
+7 -13 V
+8350 2513 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 2513 M
+-37 -297 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8313 2216 M
+8207 1892 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8207 1892 M
+8068 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8068 1568 M
+-38 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8030 1245 M
+50 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6785 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6785 921 M
+189 156 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6974 1077 M
+109 168 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7083 1245 M
+-109 202 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6974 1447 M
+-118 121 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6856 1568 M
+-226 120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6630 1688 M
+-65 -120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6565 1568 M
+-77 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6488 1245 M
+97 -324 V
+8350 2658 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 2658 M
+-60 -120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8290 2538 M
+-35 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8255 2216 M
+-90 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8165 1892 M
+8046 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8046 1568 M
+-34 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8012 1245 M
+43 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6973 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6973 921 M
+1 0 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6974 921 M
+211 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 7185 1245 M
+-164 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 7021 1568 M
+-47 46 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6974 1614 M
+-344 170 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6630 1784 M
+6513 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6513 1568 M
+-64 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6449 1245 M
+81 -324 V
+8350 3672 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 3672 M
+-38 161 V
+38 -1048 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 2785 M
+8226 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8226 2538 M
+-28 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8198 2216 M
+-76 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8122 1892 M
+-99 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8023 1568 M
+-17 -179 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8006 1389 M
+-90 -144 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 7916 1245 M
+90 -117 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8006 1128 M
+25 -207 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7118 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7118 921 M
+168 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7286 1245 M
+-131 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7155 1568 M
+-181 176 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6974 1744 M
+-344 136 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6630 1880 M
+6461 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6461 1568 M
+-51 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6410 1245 M
+65 -324 V
+1532 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8007 921 M
+-1 10 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8006 931 M
+-239 314 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7767 1245 M
+189 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 7956 1568 M
+50 42 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8006 1610 M
+74 282 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8080 1892 M
+60 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8140 2216 M
+23 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8163 2538 M
+147 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8310 2862 M
+-36 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8274 3186 M
+25 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8299 3509 M
+-68 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7804 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7804 921 M
+-142 224 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7662 1145 M
+7318 1036 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7318 1036 M
+7262 921 L
+888 2912 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8150 3833 M
+51 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8201 3509 M
+-18 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8183 3186 M
+28 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8211 2862 M
+8099 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8099 2538 M
+-16 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8083 2216 M
+-46 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8037 1892 M
+-31 -121 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8006 1771 M
+7760 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7760 1568 M
+-98 -204 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7662 1364 M
+-344 130 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7318 1494 M
+-28 74 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7290 1568 M
+-316 305 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6974 1873 M
+-49 19 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6925 1892 M
+-295 283 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6630 2175 M
+-85 -283 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6545 1892 M
+6409 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6409 1568 M
+-38 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6371 1245 M
+48 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6668 3833 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6668 3833 M
+-38 -55 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6630 3778 M
+-11 55 V
+1451 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8070 3833 M
+34 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8104 3509 M
+-13 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8091 3186 M
+20 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8111 2862 M
+-75 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8036 2538 M
+-11 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8025 2216 M
+-19 -185 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8006 2031 M
+-95 -139 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7911 1892 M
+7662 1706 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7662 1706 M
+-344 60 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7318 1766 M
+-129 126 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7189 1892 M
+-178 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7011 2216 M
+-37 190 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6974 2406 M
+-38 132 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6936 2538 M
+-306 205 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6630 2743 M
+-89 -205 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6541 2538 M
+-25 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6516 2216 M
+-68 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6448 1892 M
+-91 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6357 1568 M
+-26 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6331 1245 M
+33 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6309 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6309 921 M
+-17 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6292 1245 M
+13 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6305 1568 M
+45 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6350 1892 M
+34 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6384 2216 M
+13 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6397 2538 M
+87 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6484 2862 M
+-23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6461 3186 M
+14 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6475 3509 M
+-39 324 V
+1429 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7865 3833 M
+141 -310 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 3523 M
+0 -14 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 3509 M
+0 -43 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 3466 M
+-47 -280 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7959 3186 M
+47 -164 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 3022 M
+5 -160 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8011 2862 M
+-5 -32 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 2830 M
+7716 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7716 2538 M
+-45 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7671 2216 M
+-9 -18 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7662 2198 M
+-56 18 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7606 2216 M
+-253 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7353 2538 M
+-35 10 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7318 2548 M
+-223 314 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7095 2862 M
+60 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7155 3186 M
+-35 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7120 3509 M
+98 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5254 1452 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5254 1452 M
+217 116 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5471 1568 M
+23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5494 1892 M
+-127 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5367 2216 M
+4 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5371 2538 M
+133 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5504 2862 M
+23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5527 3186 M
+13 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5540 3509 M
+-286 324 V
+5944 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5944 921 M
+-2 163 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5942 1084 M
+-344 -15 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 5598 1069 M
+5254 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 1.000 UL
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 1.000 UL
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1221 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1221 M
+-10 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8340 1245 M
+10 28 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1177 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1177 M
+-27 68 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8323 1245 M
+27 79 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1134 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1134 M
+-45 111 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8305 1245 M
+45 131 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1091 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1091 M
+-62 154 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8288 1245 M
+62 182 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1048 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1048 M
+-79 197 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8271 1245 M
+79 233 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1004 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1004 M
+-96 241 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8254 1245 M
+96 285 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 961 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 961 M
+-113 284 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8237 1245 M
+107 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8344 1568 M
+6 9 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1614 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1614 M
+-29 -46 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8321 1568 M
+8219 1245 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8219 1245 M
+8348 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1650 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 1650 M
+-52 -82 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8298 1568 M
+-96 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8202 1245 M
+8323 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1686 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 1686 M
+-75 -118 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8275 1568 M
+-90 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8185 1245 M
+8299 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1723 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 1723 M
+-98 -155 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8252 1568 M
+-84 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8168 1245 M
+8275 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1759 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 1759 M
+8229 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8229 1568 M
+-79 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8150 1245 M
+8250 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1795 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 1795 M
+8206 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8206 1568 M
+-73 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8133 1245 M
+93 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1832 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8350 1832 M
+8183 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8183 1568 M
+-67 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8116 1245 M
+86 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1868 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8350 1868 M
+8160 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8160 1568 M
+-61 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8099 1245 M
+78 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1932 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8350 1932 M
+-15 -40 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8335 1892 M
+8137 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8137 1568 M
+-56 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8081 1245 M
+72 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6714 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6714 1245 M
+-84 -72 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6630 1173 M
+-24 72 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6606 1245 M
+24 84 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6630 1329 M
+84 -84 V
+1636 807 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8350 2052 M
+-57 -160 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8293 1892 M
+8114 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8114 1568 M
+-50 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8064 1245 M
+65 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6848 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6848 1245 M
+6630 1058 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6630 1058 M
+-63 187 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6567 1245 M
+63 221 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 6630 1466 M
+218 -221 V
+1502 927 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8350 2172 M
+8250 1892 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8250 1892 M
+8091 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8091 1568 M
+-44 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 8047 1245 M
+57 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6981 1245 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6981 1245 M
+-7 -12 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6974 1233 M
+6630 942 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6630 942 M
+-102 303 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6528 1245 M
+89 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6617 1568 M
+13 24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6630 1592 M
+46 -24 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6676 1568 M
+298 -310 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 6974 1258 M
+7 -13 V
+8350 2513 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8350 2513 M
+-37 -297 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8313 2216 M
+8207 1892 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8207 1892 M
+8068 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8068 1568 M
+-38 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.12 0.06 C 8030 1245 M
+50 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6785 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6785 921 M
+189 156 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6974 1077 M
+109 168 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 7083 1245 M
+-109 202 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6974 1447 M
+-118 121 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6856 1568 M
+-226 120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6630 1688 M
+-65 -120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6565 1568 M
+-77 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 6488 1245 M
+97 -324 V
+8350 2658 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8350 2658 M
+-60 -120 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8290 2538 M
+-35 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8255 2216 M
+-90 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8165 1892 M
+8046 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8046 1568 M
+-34 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.00 0.00 C 8012 1245 M
+43 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6973 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6973 921 M
+1 0 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6974 921 M
+211 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7185 1245 M
+-164 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7021 1568 M
+-47 46 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6974 1614 M
+-344 170 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6630 1784 M
+6513 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6513 1568 M
+-64 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 6449 1245 M
+81 -324 V
+8350 3672 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 3672 M
+-38 161 V
+38 -1048 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8350 2785 M
+8226 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8226 2538 M
+-28 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8198 2216 M
+-76 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8122 1892 M
+-99 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8023 1568 M
+-17 -179 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8006 1389 M
+-90 -144 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 7916 1245 M
+90 -117 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.58 0.00 0.83 C 8006 1128 M
+25 -207 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7118 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7118 921 M
+168 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7286 1245 M
+-131 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7155 1568 M
+-181 176 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6974 1744 M
+-344 136 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6630 1880 M
+6461 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6461 1568 M
+-51 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 6410 1245 M
+65 -324 V
+1532 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8007 921 M
+-1 10 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 931 M
+-239 314 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7767 1245 M
+189 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 7956 1568 M
+50 42 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8006 1610 M
+74 282 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8080 1892 M
+60 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8140 2216 M
+23 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8163 2538 M
+147 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8310 2862 M
+-36 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8274 3186 M
+25 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.62 0.45 C 8299 3509 M
+-68 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7804 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7804 921 M
+-142 224 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7662 1145 M
+7318 1036 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7318 1036 M
+7262 921 L
+888 2912 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8150 3833 M
+51 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8201 3509 M
+-18 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8183 3186 M
+28 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8211 2862 M
+8099 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8099 2538 M
+-16 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8083 2216 M
+-46 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8037 1892 M
+-31 -121 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 8006 1771 M
+7760 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7760 1568 M
+-98 -204 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7662 1364 M
+-344 130 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7318 1494 M
+-28 74 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 7290 1568 M
+-316 305 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6974 1873 M
+-49 19 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6925 1892 M
+-295 283 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6630 2175 M
+-85 -283 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6545 1892 M
+6409 1568 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6409 1568 M
+-38 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.34 0.71 0.91 C 6371 1245 M
+48 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6668 3833 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6668 3833 M
+-38 -55 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6630 3778 M
+-11 55 V
+1451 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8070 3833 M
+34 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8104 3509 M
+-13 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8091 3186 M
+20 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8111 2862 M
+-75 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8036 2538 M
+-11 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8025 2216 M
+-19 -185 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 8006 2031 M
+-95 -139 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 7911 1892 M
+7662 1706 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 7662 1706 M
+-344 60 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 7318 1766 M
+-129 126 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 7189 1892 M
+-178 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 7011 2216 M
+-37 190 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6974 2406 M
+-38 132 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6936 2538 M
+-306 205 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6630 2743 M
+-89 -205 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6541 2538 M
+-25 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6516 2216 M
+-68 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6448 1892 M
+-91 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6357 1568 M
+-26 -323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.90 0.62 0.00 C 6331 1245 M
+33 -324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6309 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6309 921 M
+-17 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6292 1245 M
+13 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6305 1568 M
+45 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6350 1892 M
+34 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6384 2216 M
+13 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6397 2538 M
+87 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6484 2862 M
+-23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6461 3186 M
+14 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 6475 3509 M
+-39 324 V
+1429 0 R
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7865 3833 M
+141 -310 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8006 3523 M
+0 -14 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8006 3509 M
+0 -43 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8006 3466 M
+-47 -280 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7959 3186 M
+47 -164 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8006 3022 M
+5 -160 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8011 2862 M
+-5 -32 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 8006 2830 M
+7716 2538 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7716 2538 M
+-45 -322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7671 2216 M
+-9 -18 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7662 2198 M
+-56 18 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7606 2216 M
+-253 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7353 2538 M
+-35 10 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7318 2548 M
+-223 314 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7095 2862 M
+60 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7155 3186 M
+-35 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.94 0.89 0.26 C 7120 3509 M
+98 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5254 1452 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5254 1452 M
+217 116 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5471 1568 M
+23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5494 1892 M
+-127 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5367 2216 M
+4 322 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5371 2538 M
+133 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5504 2862 M
+23 324 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5527 3186 M
+13 323 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5540 3509 M
+-286 324 V
+5944 921 M
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5944 921 M
+-2 163 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5942 1084 M
+-344 -15 V
+stroke
+LTb
+LCb setrgbcolor
+LTb
+0.00 0.45 0.70 C 5598 1069 M
+5254 921 L
+stroke
+LTb
+LCb setrgbcolor
+LTb
+5223 3863 N
+0 -2972 V
+3158 0 V
+0 2972 V
+-3158 0 V
+Z stroke
+1.000 UL
+LTb
+5223 891 M
+0 90 V
+0 2882 R
+0 -90 V
+5855 891 M
+0 90 V
+0 2882 R
+0 -90 V
+6487 891 M
+0 90 V
+0 2882 R
+0 -90 V
+7117 891 M
+0 90 V
+0 2882 R
+0 -90 V
+7749 891 M
+0 90 V
+0 2882 R
+0 -90 V
+8381 891 M
+0 90 V
+0 2882 R
+0 -90 V
+5223 891 M
+90 0 V
+3068 0 R
+-90 0 V
+5223 1486 M
+90 0 V
+3068 0 R
+-90 0 V
+5223 2080 M
+90 0 V
+3068 0 R
+-90 0 V
+5223 2674 M
+90 0 V
+3068 0 R
+-90 0 V
+5223 3268 M
+90 0 V
+3068 0 R
+-90 0 V
+5223 3863 M
+90 0 V
+3068 0 R
+-90 0 V
+1.000 UP
+stroke
+grestore
+end
+showpage
+%%Trailer
