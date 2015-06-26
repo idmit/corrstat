@@ -36,15 +36,10 @@ int main(int argc, char **argv) {
 
   //  g_cop.set_grid(cst::vec_t(2, 0.01), cst::vec_t(2, 0.99), 30);
 
-  result<cst::hope_t> hope = hope_t::make("", "", "");
+  hope_t hope;
 
-  if (!hope) {
-    printf("%s\n", hope.err().what().c_str());
-  }
-
-  size_t params[] = { 0, 0, 4, 0 };
-  result<void *> res = hope.borrow()->export_estimations(
-      argv[1], argv[2], argv[3], params, argv[4]);
+  result<void *> res =
+      hope.export_hit_joint(argv[1], argv[2], argv[3], argv[4]);
 
   //      result<void *> res = (*dist).export_cdf(argv[2]);
   if (!res.is_ok()) {

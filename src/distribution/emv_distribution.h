@@ -23,8 +23,7 @@ public:
       : mv_distribution_t(mv_sample[0].size()),
         _sample_size(mv_sample.size()),
         _mv_sample(mv_sample) {
-
-    std::sort(_mv_sample.begin(), _mv_sample.end(), less);
+    std::sort(_mv_sample.begin(), _mv_sample.end());
   }
 
   virtual num_t density(const vec_t& x) const {
