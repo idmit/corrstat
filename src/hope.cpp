@@ -602,20 +602,23 @@ result<void *> hope_t::export_estimations(
 void hope_t::gnuplot(const std::string &filename, const std::string &plotname,
                      const std::string &scriptname, size_t x, size_t y,
                      num_t xval, num_t yval) {
-  const char *param_names[] = { "\\widehat{p}_\\mu",
-                                "\\widehat{p}_\\sigma",
-                                "\\widehat{p}_{x_m}",
-                                "\\widehat{p}_\\alpha",
-                                "\\widehat{p}_\\lambda",
-                                "\\widehat{p}_{\\lambda_c}" };
+  const char *estimate_names[] = {
+    "\\widehat{p}_\\mu",     "\\widehat{p}_\\sigma",
+    "\\widehat{p}_\\lambda", "\\widehat{p}_{\\lambda_c}",
+    "\\widehat{p}_{x_m}",    "\\widehat{p}_\\alpha"
+
+  };
+  const char *param_names[] = {
+    "\\mu", "\\sigma", "\\lambda", "\\lambda_c", "x_m", "\\alpha",
+  };
 
   std::string cmd = "gnuplot ";
   cmd += "-e \"filename='" + filename + "'\" ";
   cmd += "-e \"plotname='" + plotname + ".tex'\" ";
-  cmd += "-e \"vxlabel='$" + std::string(param_names[x]) + "$'\" ";
-  cmd += "-e \"vylabel='$" + std::string(param_names[y]) + "$'\" ";
+  cmd += "-e \"vxlabel='$" + std::string(estimate_names[x]) + "$'\" ";
+  cmd += "-e \"vylabel='$" + std::string(estimate_names[y]) + "$'\" ";
   cmd += "-e \"vtitle='$" + std::string(param_names[x]) + "=" +
-         to_string(xval) + "$, $" + std::string(param_names[y]) + "=" +
+         to_string(xval) + "$, " + "$" + std::string(param_names[y]) + "=" +
          to_string(yval) + "$'\" ";
 
   cmd += scriptname;
