@@ -7,8 +7,6 @@
 //
 
 #include <iostream>
-#include "estimator.h"
-#include "spn.h"
 
 #include "distribution/clayton_copula.h"
 #include "distribution/gumbel_copula.h"

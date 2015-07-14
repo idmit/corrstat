@@ -10,6 +10,7 @@
 #define corrstat_copula_h
 
 #include <cerrno>
+#include <cstring>
 #include <fstream>
 
 #include "copula_i.h"
