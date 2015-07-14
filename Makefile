@@ -14,7 +14,7 @@ else
 endif
 
 CFLAGS    = -Wall -std=c++03 -pedantic-errors
-LIBS      = -L$(LIB_DIR) -lspn -lnlopt
+LIBS      = -L$(LIB_DIR) -lspn
 
 MODULES   = distribution .
 SRC_DIR   = $(addprefix src/, $(MODULES))

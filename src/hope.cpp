@@ -22,8 +22,6 @@
 
 #include "csv.h"
 
-#include "nlopt/nlopt.hpp"
-
 template <typename T> std::string to_string(T num) {
   std::ostringstream ss;
   ss << num;
@@ -31,36 +29,6 @@ template <typename T> std::string to_string(T num) {
 }
 
 namespace cst {
-
-struct max_data {
-  const emv_distribution_t *emv_dist;
-  const e_distribution_t **e_dists;
-};
-
-cst::num_t max_func(const vec_t &x, vec_t &grad, void *data) {
-  max_data *mdata = reinterpret_cast<max_data *>(data);
-  const emv_distribution_t *emv_dist = mdata->emv_dist;
-  const e_distribution_t **e_dists = mdata->e_dists;
-
-  gaussian_copula_t g_cop(2, x[0]);
-
-  num_t acc = 0;
-  for (size_t i = 0; i < emv_dist->sample_size(); ++i) {
-    vec_t element = emv_dist->sample_at(i);
-    vec_t cop_args(2);
-    cop_args[0] = e_dists[0]->cdf(element[0]);
-    cop_args[1] = e_dists[1]->cdf(element[1]);
-    num_t density = g_cop.density(cop_args);
-    if (std::isnan(density) || std::isinf(density)) {
-      continue;
-    }
-    printf("%lf : %lf : %lf\n", x[0], density, std::log(density));
-    acc += std::log(density);
-  }
-  printf("SUMM : %lf\n", acc);
-
-  return acc;
-}
 
 result<void *> hope_t::read_model_vals(const std::string &model_vals_filename,
                                        std::vector<vec_t> &model_vals) {
@@ -499,103 +467,6 @@ result<void *> hope_t::export_hit_joint(
       }
     }
   }
-  return result<void *>::ok(NULL);
-}
-
-result<void *> hope_t::export_estimations(
-    const std::string &path_to_margins, const std::string &path_to_joints,
-    const std::string &base_path_to_read, const size_t params_and_vals[4],
-    const std::string &path_to_write) const {
-  std::vector<vec_t> unique_model_vals;
-  result<void *> loaded =
-      read_unique_model_vals(base_path_to_read, unique_model_vals);
-  if (!loaded) {
-    return loaded;
-  }
-  const char *trace_lengths[] = { "100", "250", "1000" };
-
-  for (size_t k = 0; k < 3; ++k) {
-    std::ofstream stream;
-    stream.open((path_to_write + "/est_" + to_string(params_and_vals[0]) +
-                 to_string(params_and_vals[1]) + '_' +
-                 to_string(params_and_vals[2]) + to_string(params_and_vals[3]) +
-                 '_' + trace_lengths[k])
-                    .c_str(),
-                std::ofstream::trunc);
-
-    if (stream.fail()) {
-      std::string err_text =
-          path_to_write + std::string(": ") + strerror(errno);
-      return result<void *>::error(err_text, error_t::io_error);
-    }
-
-    const e_distribution_t *margins[2];
-
-    result<e_distribution_t> loaded_1 = e_distribution_t::read(
-        path_to_margins + '_' + to_string(params_and_vals[0]) + '_' +
-        to_string(params_and_vals[1]) + '_' + trace_lengths[k]);
-    if (!loaded_1) {
-      return result<void *>::error(loaded_1.err());
-    }
-
-    result<e_distribution_t> loaded_2 = e_distribution_t::read(
-        path_to_margins + '_' + to_string(params_and_vals[2]) + '_' +
-        to_string(params_and_vals[3]) + '_' + trace_lengths[k]);
-    if (!loaded_2) {
-      return result<void *>::error(loaded_2.err());
-    }
-
-    margins[0] = loaded_1.borrow();
-    margins[1] = loaded_2.borrow();
-
-    result<emv_distribution_t> loaded_3 = emv_distribution_t::read(
-        path_to_joints + '_' + to_string(params_and_vals[0]) +
-        to_string(params_and_vals[1]) + "_" + to_string(params_and_vals[2]) +
-        to_string(params_and_vals[3]) + "_" + trace_lengths[k]);
-
-    if (!loaded_3) {
-      return result<void *>::error(loaded_3.err());
-    }
-
-    const emv_distribution_t *joint = loaded_3.borrow();
-
-    max_data mdata = { joint, margins };
-
-    //    nlopt::opt opt(nlopt::LN_COBYLA, 1);
-    //
-    //    std::vector<double> lb(1);
-    //    lb[0] = -1;
-    //    opt.set_lower_bounds(lb);
-    //    std::vector<double> ub(1);
-    //    ub[0] = 1;
-    //    opt.set_upper_bounds(ub);
-    //
-    //    opt.set_max_objective(max_func, &mdata);
-    //
-    //    opt.set_xtol_rel(1e-4);
-    //
-    //    std::vector<double> x(1);
-    //    x[0] = 0;
-    //    double maxf;
-    //    nlopt::result result = opt.optimize(x, maxf);
-    //
-    //    if (result < 0) {
-    //      printf("nlopt failed!\n");
-    //    } else {
-    //      printf("found maximum at f(%g) = %0.10g\n", x[0], maxf);
-    //    }
-
-    size_t m = 50;
-    num_t d = 2.0 / 50;
-    vec_t grad;
-    for (size_t n = 1; n < m; ++n) {
-      vec_t arg(1, -1 + d * n);
-      stream << -1 + d *n << ' ' << max_func(arg, grad, &mdata) << '\n';
-    }
-
-    stream.close();
-  }
-
   return result<void *>::ok(NULL);
 }
 
