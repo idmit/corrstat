@@ -11,7 +11,6 @@
 #include <cmath>
 #include <cstring>
 #include <fstream>
-#include <sstream>
 #include <stdlib.h>
 
 #include "distribution/e_distribution.h"
@@ -21,12 +20,6 @@
 #include "hope.h"
 
 #include "csv.h"
-
-template <typename T> std::string to_string(T num) {
-  std::ostringstream ss;
-  ss << num;
-  return ss.str();
-}
 
 namespace cst {
 

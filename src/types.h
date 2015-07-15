@@ -10,6 +10,7 @@
 #define corrstat_types_h
 
 #include <cassert>
+#include <sstream>
 #include <vector>
 
 #include "result.h"
@@ -30,6 +31,12 @@ inline num_t cross(const vec_t &x, const vec_t &y) {
     c += x[i] * y[i];
   }
   return c;
+}
+
+template <typename T> std::string to_string(T num) {
+  std::ostringstream ss;
+  ss << num;
+  return ss.str();
 }
 }
 
