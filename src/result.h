@@ -11,19 +11,98 @@
 
 #include "error.h"
 
+/**
+ *  This module contains definition of the result type, that is widely used in
+ *  other modules.
+ */
+
+/**
+ *  Result class storing some value of type T as a result of some operation
+ *  returning T, if that operation succeded, or an error value, if it failed.
+ *  Type T should contain a default constructor.
+ */
 template <class T> class result {
 public:
+  /**
+   *  Constructor accepting value to represent success.
+   *
+   *  @param value Value of some operation.
+   *
+   *  @return Result containing given value.
+   */
   static result<T> ok(const T &value);
+
+  /**
+   *  Constructor accepting error parameters to represent failure.
+   *
+   *  @param what Cause of error.
+   *  @param type Type of error.
+   *
+   *  @return Result representing failure with given error.
+   */
   static result<T> error(const std::string &what, error_t::type type);
+
+  /**
+   *  Constructor accepting already created error.
+   *
+   *  @param error Error that occured earlier.
+   *
+   *  @return Result representing failure with given error.
+   */
   static result<T> error(const error_t &error);
 
+  /**
+   *  Getter for outcome represented by the result.
+   *
+   *  @return true for success, false for faulure.
+   */
   bool is_ok() const;
+
+  /**
+   *  Implicit getter for outcome represented by the result.
+   *
+   *  @return true for success, false for faulure.
+   */
   operator bool() const;
 
+  /**
+   *  Getter for the value, if result represents success. Don't call it
+   *  otherwise.
+   *
+   *  @return Copy of the value corresponding to success.
+   */
   T get();
-  const T *borrow();
-  T operator*();
+
+  /**
+   *  Implicit getter for the pointer to the value, if result represents
+   *  success. Don't call it otherwise.
+   *
+   *  @return Pointer to the value corresponding to success.
+   */
   T *operator->();
+
+  /**
+   *  Getter for the pointer to the value, if result represents success. Don't
+   *  call it otherwise.
+   *
+   *  @return Pointer to the value corresponding to success.
+   */
+  const T *borrow();
+
+  /**
+   *  Imlicit getter for the value, if result represents success. Don't call it
+   *  otherwise.
+   *
+   *  @return Copy of the value corresponding to success.
+   */
+  T operator*();
+
+  /**
+   *  Getter for the error, if result represents failure. Don't call it
+   *  otherwise.
+   *
+   *  @return Copy of the error corresponding to failure.
+   */
   error_t err();
 
 private:
