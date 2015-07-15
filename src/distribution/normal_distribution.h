@@ -44,7 +44,11 @@ public:
   virtual bool is_supp_lower_bound_inclusive() const { return false; }
   virtual bool is_supp_upper_bound_inclusive() const { return false; }
 
-  virtual num_t sample() const { return _dist(_eng); }
+  virtual num_t sample() const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
 private:
   static num_t erf(num_t x) {

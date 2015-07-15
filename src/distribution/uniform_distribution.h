@@ -57,7 +57,11 @@ public:
   virtual bool is_supp_lower_bound_inclusive() const { return true; }
   virtual bool is_supp_upper_bound_inclusive() const { return true; }
 
-  virtual num_t sample() const { return _dist(_eng); }
+  virtual num_t sample() const {
+    // TODO: Implement if needed.
+    assert(false);
+    return 0;
+  }
 
 private:
   num_t _lower, _upper;

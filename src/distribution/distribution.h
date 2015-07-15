@@ -16,8 +16,6 @@
 
 #include "distribution_i.h"
 
-#include <boost/random/mersenne_twister.hpp>
-
 namespace cst {
 
 class distribution_t : public distribution_i {
@@ -80,9 +78,6 @@ public:
     }
     return samples;
   }
-
-protected:
-  static boost::random::mt19937 _eng;
 };
 }
 
