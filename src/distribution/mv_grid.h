@@ -11,11 +11,32 @@
 
 #include "../types.h"
 
+/**
+ *  This module contains definition of the mv_grid interface.
+ */
+
 namespace cst {
 
+/**
+ *  Multivariate grid interface provides a grid of according dimensions used to
+ *  make continuous objects discrete.
+ */
 class mv_grid_i {
 public:
+  /**
+   *  Set underlying grid directly, which is vector of vectors.
+   *
+   *  @param grid Grid to set as current.
+   */
   virtual void set_grid(const std::vector<vec_t>& grid) const { _grid = grid; }
+
+  /**
+   *  Set underlying grid to uniform grid/
+   *
+   *  @param grid_begin  Upper left grid corner.
+   *  @param grid_end    Lower right grid corner.
+   *  @param grid_detail Grid resolution on each side.
+   */
   virtual void set_grid(const vec_t& grid_begin, const vec_t& grid_end,
                         size_t grid_detail) const {
     _grid.clear();
@@ -31,6 +52,9 @@ public:
   virtual const std::vector<vec_t>& grid() const { return _grid; }
 
 protected:
+  /**
+   *  Recursive subroutine to model dynamic number of nested loops.
+   */
   void rec_grid(const vec_t& grid_begin, const vec_t& grid_end,
                 const vec_t& steps, size_t grid_detail, size_t coordinate,
                 size_t dim, vec_t point) const {
