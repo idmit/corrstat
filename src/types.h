@@ -15,24 +15,42 @@
 
 #include "result.h"
 
+/**
+ *  This module contains various type definitions, constants and utility
+ *  functions.
+ */
+
 namespace cst {
+
+/**
+ *  Floating point type for all calculations.
+ */
 typedef double num_t;
+
+/**
+ *  Vector of chosen floating point type.
+ */
 typedef std::vector<num_t> vec_t;
 
+/**
+ *  Regular mathematical function type.
+ */
 typedef num_t (*fn)(num_t);
+
+/**
+ *  Multidimensional mathematical function type.
+ */
 typedef num_t (*mv_fn)(vec_t);
 
 const num_t PI = 3.14159265359;
 
-inline num_t cross(const vec_t &x, const vec_t &y) {
-  assert(x.size() == y.size());
-  num_t c = 0;
-  for (size_t i = 0; i < x.size(); ++i) {
-    c += x[i] * y[i];
-  }
-  return c;
-}
-
+/**
+ *  Utility function to convert numeric types to string.
+ *
+ *  @param num Number to convert.
+ *
+ *  @return String representing given number.
+ */
 template <typename T> std::string to_string(T num) {
   std::ostringstream ss;
   ss << num;
