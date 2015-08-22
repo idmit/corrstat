@@ -14,11 +14,33 @@
 
 #include "mv_distribution.h"
 
+/**
+ *  This module contains definition of the emv_distribution class.
+ */
+
 namespace cst {
 
+/**
+ *  emv_distribution class provides a set of common operations over empirical
+ *  multivariate distribution.
+ */
 class emv_distribution_t : public mv_distribution_t {
 public:
+  /**
+   *  Default constructor creating an empty emv_distribution. Provided for
+   *  compatibility with result type.
+   *
+   *  @return Empty emv_distribution.
+   */
   emv_distribution_t() : mv_distribution_t(0) {}
+
+  /**
+   *  Constructor accepting vector of some distribution samples.
+   *
+   *  @param sample Vector of some distribution samples.
+   *
+   *  @return emv_distribution based on a given samples.
+   */
   emv_distribution_t(const std::vector<vec_t>& mv_sample)
       : mv_distribution_t(mv_sample[0].size()),
         _sample_size(mv_sample.size()),
@@ -56,6 +78,14 @@ public:
     return s;
   }
 
+  /**
+   *  Get value of specified margin cdf at given argument x.
+   *
+   *  @param coordinate Coordinate corresponding to margin of interest.
+   *  @param x Argument of interest.
+   *
+   *  @return Value of given margin at given argument x.
+   */
   virtual num_t margin_cdf(size_t coordinate, num_t x) const {
     num_t num = 0;
     for (size_t i = 0; i < _sample_size; ++i) {
@@ -66,6 +96,13 @@ public:
     return num / (_sample_size + 1);
   }
 
+  /**
+   *  Read sample data from columns in a file.
+   *
+   *  @param path_to_data Path to read data from.
+   *
+   *  @return OK result for success, error otherwise
+   */
   static result<emv_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
@@ -127,10 +164,25 @@ public:
     return result<emv_distribution_t>::error(err_text, error_t::io_error);
   }
 
+  /**
+   *  Get the sample size.
+   *
+   *  @return Sample size.
+   */
   size_t sample_size() const { return _sample_size; }
 
+  /**
+   *  Get sample at given index.
+   *
+   *  @param i Index of interest.
+   *
+   *  @return Sample at given index.
+   */
   vec_t sample_at(size_t i) const { return _mv_sample[i]; }
 
+  /**
+   *  Set sample as a new grid.
+   */
   virtual void set_sample_as_grid() const { _grid = _mv_sample; }
 
 protected:

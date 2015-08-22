@@ -17,11 +17,33 @@
 #include "kernel.h"
 #include "../result.h"
 
+/**
+ *  This module contains definition of the e_distribution class.
+ */
+
 namespace cst {
 
+/**
+ *  e_distribution class provides a set of common operations over empirical
+ *  univariate distribution.
+ */
 class e_distribution_t : public distribution_t {
 public:
+  /**
+   *  Default constructor creating an empty e_distribution. Provided for
+   *  compatibility with result type.
+   *
+   *  @return Empty e_distribution.
+   */
   e_distribution_t() {}
+
+  /**
+   *  Constructor accepting vector of some distribution samples.
+   *
+   *  @param sample Vector of some distribution samples.
+   *
+   *  @return e_distribution based on a given samples.
+   */
   e_distribution_t(const vec_t& sample)
       : _sample_size(sample.size()), _sample(sample) {
     std::sort(_sample.begin(), _sample.end());
@@ -31,6 +53,15 @@ public:
 
   virtual num_t density(num_t x) const { return density(x, 0.4); }
 
+  /**
+   *  Get value of empirical density smoothed with a factor of h at given
+   *  argument x.
+   *
+   *  @param x Argument of interest.
+   *  @param h Smoothness factor.
+   *
+   *  @return Value of smoothed density at given argument
+   */
   virtual num_t density(num_t x, num_t h) const {
     gaussian_ker ker;
     num_t acc = 0;
@@ -102,6 +133,13 @@ public:
     return 0;
   }
 
+  /**
+   *  Read sample data from column in a file.
+   *
+   *  @param path_to_data Path to read data from.
+   *
+   *  @return OK result for success, error otherwise
+   */
   static result<e_distribution_t> read(std::string path_to_data) {
     std::fstream stream;
     stream.open(path_to_data.c_str());
@@ -129,8 +167,16 @@ public:
                                            error_t::io_error);
   }
 
+  /**
+   *  Get the sample size.
+   *
+   *  @return Sample size.
+   */
   size_t sample_size() const { return _sample_size; }
 
+  /**
+   *  Set sample as a new grid.
+   */
   virtual void set_sample_as_grid() const {
     _grid.clear();
 

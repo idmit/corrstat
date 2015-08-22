@@ -16,8 +16,16 @@
 
 #include "distribution_i.h"
 
+/**
+ *  This module contains definition of the distribution class.
+ */
+
 namespace cst {
 
+/**
+ *  distribution class provides a set of common operations over pure univariate
+ *  distribution.
+ */
 class distribution_t : public distribution_i {
 public:
   virtual num_t prob(num_t x) const { return 0; }
@@ -36,6 +44,14 @@ public:
 
   virtual num_t sample() const = 0;
 
+  /**
+   *  Export current grid values and corresponding cdf values to a file as two
+   *  columns.
+   *
+   *  @param path_to_data Path to write data to.
+   *
+   *  @return OK result for success, error otherwise.
+   */
   result<void*> export_cdf(std::string path_to_data) {
     std::ofstream stream;
     stream.open(path_to_data.c_str(), std::ofstream::trunc);
@@ -53,6 +69,14 @@ public:
     return result<void*>::ok(NULL);
   }
 
+  /**
+   *  Export current grid values and corresponding density values to a file as
+   *  two columns.
+   *
+   *  @param path_to_data Path to write data to.
+   *
+   *  @return OK result for success, error otherwise.
+   */
   result<void*> export_density(std::string path_to_data) {
     std::ofstream stream;
     stream.open(path_to_data.c_str(), std::ofstream::trunc);
@@ -70,6 +94,13 @@ public:
     return result<void*>::ok(NULL);
   }
 
+  /**
+   *  Get multiple samples at once.
+   *
+   *  @param size Number of needed samples.
+   *
+   *  @return Vector of samples.
+   */
   virtual vec_t samples(size_t size) const {
     vec_t samples(size);
 
